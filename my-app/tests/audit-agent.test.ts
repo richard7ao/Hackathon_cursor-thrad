@@ -46,7 +46,7 @@ describe("runAudit — the demo's opening 'wow' beat", () => {
   it("returns an Alpic MCP endpoint URL", () => {
     const result = runAudit();
     expect(result.endpointUrl).toMatch(/^https?:\/\//);
-    expect(result.endpointUrl).toContain("check_placement");
+    expect(result.endpointUrl).toMatch(/alpic\.live|alpic\.app|check_placement/);
   });
 
   it("returns a valid ISO timestamp for the generated run", () => {

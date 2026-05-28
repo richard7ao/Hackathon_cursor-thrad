@@ -181,7 +181,7 @@ function ListingRow({
               rel="noopener noreferrer"
               className="font-mono text-[10px] uppercase tracking-wider text-crimson hover:underline"
             >
-              view ↗
+              view on zoopla ↗
             </a>
           ) : null}
           <button

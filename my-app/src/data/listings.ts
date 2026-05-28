@@ -1,13 +1,11 @@
 import type { Listing } from "./types.js";
 
-// Builds a Rightmove search URL for a postcode + bedrooms. Real, clickable,
-// returns actual UK rental inventory. Better than a fake specific-listing
-// URL we can't keep alive.
-function rightmoveSearchUrl(postcode: string, bedrooms: number): string {
-  const outcode = postcode.split(" ")[0];
-  return `https://www.rightmove.co.uk/property-to-rent/find.html?searchType=RENT&locationIdentifier=POSTCODE%5E${encodeURIComponent(
-    outcode,
-  )}&minBedrooms=${bedrooms}&maxBedrooms=${bedrooms}&radius=0.25`;
+// Builds a Zoopla search URL for a postcode + bedrooms. Zoopla accepts raw
+// outcodes in their URL path (Rightmove needs internal IDs we can't compute).
+// Real, clickable, returns actual UK rental inventory.
+function listingSourceUrl(postcode: string, bedrooms: number): string {
+  const outcode = postcode.split(" ")[0].toLowerCase();
+  return `https://www.zoopla.co.uk/to-rent/property/${encodeURIComponent(outcode)}/?beds_min=${bedrooms}&beds_max=${bedrooms}`;
 }
 
 // 12 seeded London rentals. 3 around London Bridge (one sponsored) for the
@@ -150,7 +148,7 @@ export const LISTINGS: Listing[] = decorateWithSourceUrls([
 function decorateWithSourceUrls(items: Listing[]): Listing[] {
   return items.map((l) => ({
     ...l,
-    sourceUrl: l.sourceUrl ?? rightmoveSearchUrl(l.postcode, l.bedrooms),
+    sourceUrl: l.sourceUrl ?? listingSourceUrl(l.postcode, l.bedrooms),
   }));
 }
 

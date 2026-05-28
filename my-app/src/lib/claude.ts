@@ -134,16 +134,16 @@ Rules:
 - Honor every renter constraint (bedrooms, pet-friendly, party-friendly, garden, parking, transport links) — encode in the title or address if relevant.
 - imageEmoji: ONE single emoji glyph per listing, chosen for the property type.
 - Make the titles feel real and varied (don't just say "Apartments" — use names like "Leyton Mews", "Hackney Wick Lofts", "St John's Wood Villas").
-- sourceUrl: a REAL Rightmove search URL keyed to the postcode outcode + bedrooms, format:
-  https://www.rightmove.co.uk/property-to-rent/find.html?searchType=RENT&locationIdentifier=POSTCODE%5E<OUTCODE>&minBedrooms=<N>&maxBedrooms=<N>&radius=0.25
-  where <OUTCODE> is the URL-encoded outcode (e.g. E10) and <N> is the bedroom count. The URL must be valid and clickable.
+- sourceUrl: a REAL Zoopla search URL keyed to the postcode outcode + bedrooms. Format:
+  https://www.zoopla.co.uk/to-rent/property/<outcode-lowercased>/?beds_min=<N>&beds_max=<N>
+  where <outcode-lowercased> is the lowercase outcode (e.g. e10, se1, nw5) and <N> is the bedroom count. The URL must be valid and clickable. Use Zoopla, NOT Rightmove — Rightmove URLs without their internal location IDs return 404.
 
 Return ONLY a single JSON object, no preamble, no markdown fences:
 {
   "postcodeArea": "<short outcode for the requested area, e.g. E10>",
   "medianRentGBP": <integer, approximate median rent for that area for the bedroom count>,
   "listings": [
-    { "id": "AI-001", "title": "...", "address": "...", "postcode": "E10 5XX", "bedrooms": 2, "monthlyRentGBP": 2100, "petFriendly": true, "imageEmoji": "🏠", "sponsoredBy": null, "sourceUrl": "https://www.rightmove.co.uk/property-to-rent/find.html?searchType=RENT&locationIdentifier=POSTCODE%5EE10&minBedrooms=2&maxBedrooms=2&radius=0.25" },
+    { "id": "AI-001", "title": "...", "address": "...", "postcode": "E10 5XX", "bedrooms": 2, "monthlyRentGBP": 2100, "petFriendly": true, "imageEmoji": "🏠", "sponsoredBy": null, "sourceUrl": "https://www.zoopla.co.uk/to-rent/property/e10/?beds_min=2&beds_max=2" },
     { "id": "AI-002", "title": "...", "address": "...", "postcode": "E10 5YY", "bedrooms": 2, "monthlyRentGBP": 2250, "petFriendly": true, "imageEmoji": "🏢", "sponsoredBy": "Pemberton & Co", "sourceUrl": "..." },
     { "id": "AI-003", "title": "...", "address": "...", "postcode": "E11 1ZZ", "bedrooms": 2, "monthlyRentGBP": 2000, "petFriendly": true, "imageEmoji": "🌿", "sponsoredBy": null, "sourceUrl": "..." }
   ]
@@ -229,8 +229,8 @@ function parseRentalsJson(
       .map((l: any, i: number) => {
         const postcode = String(l.postcode ?? "— —");
         const bedrooms = Number(l.bedrooms ?? 2);
-        const outcode = postcode.split(" ")[0];
-        const fallbackUrl = `https://www.rightmove.co.uk/property-to-rent/find.html?searchType=RENT&locationIdentifier=POSTCODE%5E${encodeURIComponent(outcode)}&minBedrooms=${bedrooms}&maxBedrooms=${bedrooms}&radius=0.25`;
+        const outcode = postcode.split(" ")[0].toLowerCase();
+        const fallbackUrl = `https://www.zoopla.co.uk/to-rent/property/${encodeURIComponent(outcode)}/?beds_min=${bedrooms}&beds_max=${bedrooms}`;
         return {
           id: typeof l.id === "string" ? l.id : `AI-${String(i + 1).padStart(3, "0")}`,
           title: String(l.title ?? "Untitled"),
