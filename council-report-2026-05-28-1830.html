@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FairLet Win Probability — Council Verdict 2026-05-28</title>
+<style>
+  :root {
+    --ink: #0f1115;
+    --paper: #fafaf7;
+    --rule: #d8d6cf;
+    --muted: #5b5e66;
+    --accent: #b22222;
+    --gold: #b8860b;
+    --green: #2d6a4f;
+    --grey: #e8e6df;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", system-ui, sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    margin: 0;
+    padding: 0;
+    line-height: 1.55;
+    font-size: 16px;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 48px 32px 96px; }
+  .stamp {
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    color: var(--muted);
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 12px;
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .stamp .badge {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 3px 9px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+  }
+  h1 {
+    font-size: 32px;
+    line-height: 1.15;
+    margin: 0 0 6px;
+    letter-spacing: -0.01em;
+  }
+  h1 .sub {
+    font-weight: 400;
+    color: var(--muted);
+    font-size: 18px;
+    letter-spacing: 0;
+    display: block;
+    margin-top: 4px;
+  }
+  h2 {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    margin: 48px 0 12px;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 6px;
+  }
+  h3 { font-size: 17px; margin: 24px 0 8px; }
+  p, li { margin: 8px 0; }
+  ul { padding-left: 20px; }
+  .verdict {
+    background: #fff;
+    border: 1px solid var(--rule);
+    padding: 24px 28px;
+    margin-top: 12px;
+  }
+  .prob-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin: 18px 0;
+  }
+  .prob-card {
+    background: #fff;
+    border: 1px solid var(--rule);
+    padding: 18px 16px;
+    text-align: center;
+  }
+  .prob-card .label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+  .prob-card .num {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+  }
+  .prob-card .baseline {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 8px;
+  }
+  .prob-card.headline { background: var(--ink); color: var(--paper); }
+  .prob-card.headline .label { color: var(--paper); opacity: 0.7; }
+  .prob-card.headline .num { color: var(--paper); }
+  .prob-card.headline .baseline { color: var(--paper); opacity: 0.6; }
+  .grid-advisors {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+    margin: 16px 0 8px;
+  }
+  .advisor-tile {
+    background: #fff;
+    border: 1px solid var(--rule);
+    padding: 12px 10px;
+    font-size: 12px;
+    position: relative;
+  }
+  .advisor-tile .name {
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 6px;
+  }
+  .advisor-tile .nums {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+  }
+  .advisor-tile .label-row {
+    font-size: 10px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 4px;
+  }
+  .advisor-tile .stance {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.4;
+    margin-top: 6px;
+  }
+  .vote-strong { border-top: 4px solid var(--green); }
+  .vote-flag   { border-top: 4px solid var(--accent); }
+  .vote-mixed  { border-top: 4px solid var(--gold); }
+  .vote-neutral{ border-top: 4px solid var(--rule); }
+  .legend {
+    display: flex;
+    gap: 20px;
+    font-size: 12px;
+    color: var(--muted);
+    margin: 8px 0 0;
+    flex-wrap: wrap;
+  }
+  .legend span::before {
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-right: 5px;
+    vertical-align: middle;
+  }
+  .legend .strong::before { background: var(--green); }
+  .legend .flag::before   { background: var(--accent); }
+  .legend .mixed::before  { background: var(--gold); }
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0;
+    font-size: 14px;
+  }
+  .table th, .table td {
+    border: 1px solid var(--rule);
+    padding: 8px 12px;
+    text-align: left;
+    vertical-align: top;
+  }
+  .table th {
+    background: var(--grey);
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+  }
+  .table td.num {
+    font-weight: 700;
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+  }
+  .table .row-median { background: #fff8e1; }
+  .table .row-median td { font-weight: 700; }
+  details {
+    margin: 12px 0;
+    border: 1px solid var(--rule);
+    background: #fff;
+  }
+  details summary {
+    padding: 12px 16px;
+    cursor: pointer;
+    font-weight: 600;
+    background: #fafaf4;
+    list-style: none;
+    user-select: none;
+  }
+  details summary::-webkit-details-marker { display: none; }
+  details summary::after {
+    content: "▸";
+    float: right;
+    color: var(--muted);
+    transition: transform 0.2s;
+  }
+  details[open] summary::after { content: "▾"; }
+  details .body { padding: 12px 18px 16px; font-size: 14.5px; line-height: 1.6; }
+  .one-thing {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 22px 26px;
+    margin-top: 16px;
+  }
+  .one-thing h3 {
+    color: var(--paper);
+    margin: 0 0 8px;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+  }
+  .one-thing p { margin: 0; font-size: 17px; line-height: 1.5; }
+  .spectrum {
+    background: #fff;
+    border: 1px solid var(--rule);
+    padding: 18px 20px;
+    margin: 12px 0;
+  }
+  .spectrum-bar {
+    position: relative;
+    height: 28px;
+    background: linear-gradient(to right, #ffe6e6, #fff5d6, #d4f0d8);
+    border: 1px solid var(--rule);
+    margin: 28px 0 12px;
+  }
+  .spectrum-tick {
+    position: absolute;
+    top: -22px;
+    transform: translateX(-50%);
+    font-size: 11px;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .spectrum-tick::after {
+    content: "";
+    display: block;
+    width: 1px;
+    height: 8px;
+    background: var(--ink);
+    margin: 2px auto 0;
+  }
+  .spectrum-pin {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--ink);
+    transform: translateX(-1px);
+  }
+  .spectrum-pin.median {
+    background: var(--accent);
+    width: 4px;
+  }
+  .spectrum-pin .label {
+    position: absolute;
+    bottom: -22px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 10px;
+    color: var(--ink);
+    white-space: nowrap;
+    font-weight: 600;
+  }
+  .spectrum-pin.median .label { color: var(--accent); }
+  footer {
+    margin-top: 64px;
+    padding-top: 16px;
+    border-top: 1px solid var(--rule);
+    color: var(--muted);
+    font-size: 12px;
+    text-align: center;
+  }
+  @media (max-width: 720px) {
+    .grid-advisors { grid-template-columns: repeat(2, 1fr); }
+    .prob-grid { grid-template-columns: 1fr; }
+    h1 { font-size: 26px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="stamp">
+    <span>FairLet · Cursor × Thrad AdTech Hackathon · 2026-05-28 · T-30</span>
+    <span class="badge">VERDICT</span>
+  </div>
+
+  <h1>
+    Win-Probability Council
+    <span class="sub">Calibrated forecast at T-30 with zero code shipped.</span>
+  </h1>
+
+  <h2>The Headline</h2>
+  <div class="prob-grid">
+    <div class="prob-card">
+      <div class="label">P(1st place)</div>
+      <div class="num">8%</div>
+      <div class="baseline">baseline ~7%</div>
+    </div>
+    <div class="prob-card headline">
+      <div class="label">P(Top 3)</div>
+      <div class="num">20%</div>
+      <div class="baseline">baseline ~20%</div>
+    </div>
+    <div class="prob-card">
+      <div class="label">P(Any prize · 5th+)</div>
+      <div class="num">38%</div>
+      <div class="baseline">baseline ~30%</div>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <p>You're <strong>fractionally above base rate</strong> across the board — meaningful lift on P(any prize) thanks to above-median planning + the backup-video floor, but no real lift on P(1st) because winning requires execution that hasn't happened yet. At T-30 with zero code shipped, "council-validated plan" is intent, not evidence. The Expansionist's 28% P(1st) was treated by 5/5 reviewers as an unearned tailwind.</p>
+    <p><strong>The number that matters most</strong> is whether Person C has Alpic MCP deployed, traced, and reachable from an off-network device by 9:00 PM. Every probability above is conditional on that single event.</p>
+  </div>
+
+  <h2>Advisor Estimate Spread</h2>
+  <div class="grid-advisors">
+    <div class="advisor-tile vote-flag">
+      <div class="name">Contrarian</div>
+      <div class="label-row">1st / Top 3 / Any</div>
+      <div class="nums">6 / 14 / 28</div>
+      <div class="stance">Below baseline. Track 02 fit fatal; Q&A kills it; CPM is theater.</div>
+    </div>
+    <div class="advisor-tile vote-mixed">
+      <div class="name">First Principles</div>
+      <div class="label-row">1st / Top 3 / Any</div>
+      <div class="nums">12 / 32 / 58</div>
+      <div class="stance">Memorable demo wins. Alpic live = pays out.</div>
+    </div>
+    <div class="advisor-tile vote-flag">
+      <div class="name">Expansionist</div>
+      <div class="label-row">1st / Top 3 / Any</div>
+      <div class="nums">28 / 58 / 82</div>
+      <div class="stance"><strong>Outlier.</strong> Treats plan as product. 5/5 reviewers flagged.</div>
+    </div>
+    <div class="advisor-tile vote-mixed">
+      <div class="name">Outsider</div>
+      <div class="label-row">1st / Top 3 / Any</div>
+      <div class="nums">6 / 18 / 35</div>
+      <div class="stance">Two-products-in-one + 8 acronyms. Bury the CPM and lose it.</div>
+    </div>
+    <div class="advisor-tile vote-strong">
+      <div class="name">Executor</div>
+      <div class="label-row">1st / Top 3 / Any</div>
+      <div class="nums">9 / 22 / 42</div>
+      <div class="stance"><strong>Best-calibrated.</strong> 4/5 reviewers picked it. Anchors on Alpic timeline.</div>
+    </div>
+  </div>
+  <div class="legend">
+    <span class="strong">Council anchors here</span>
+    <span class="mixed">Partial signal</span>
+    <span class="flag">Mis-calibrated</span>
+  </div>
+
+  <h2>Visual: P(1st place) — advisor spread vs. verdict</h2>
+  <div class="spectrum">
+    <div class="spectrum-bar">
+      <div class="spectrum-tick" style="left: 0%">0%</div>
+      <div class="spectrum-tick" style="left: 7%">baseline 7%</div>
+      <div class="spectrum-tick" style="left: 25%">25%</div>
+      <div class="spectrum-tick" style="left: 50%">50%</div>
+      <div class="spectrum-pin" style="left: 6%"><div class="label">Contr · Outs · 6</div></div>
+      <div class="spectrum-pin median" style="left: 8%"><div class="label">VERDICT 8</div></div>
+      <div class="spectrum-pin" style="left: 9%"><div class="label">Exec · 9</div></div>
+      <div class="spectrum-pin" style="left: 12%"><div class="label">FP · 12</div></div>
+      <div class="spectrum-pin" style="left: 28%"><div class="label">Expan · 28</div></div>
+    </div>
+    <p style="font-size: 13px; color: var(--muted); margin: 18px 0 0;">Four advisors cluster between 6% and 12%. The Expansionist sits 16pp above the next-highest estimate; all 5 peer reviewers independently judged this an outlier.</p>
+  </div>
+
+  <h2>Reviewer-Calibrated Estimates (saw all 5 advisors anonymized)</h2>
+  <table class="table">
+    <tr><th>Reviewer</th><th class="num">P(1st)</th><th class="num">P(Top 3)</th><th class="num">P(Any)</th></tr>
+    <tr><td>1</td><td class="num">8%</td><td class="num">20%</td><td class="num">38%</td></tr>
+    <tr><td>2</td><td class="num">10%</td><td class="num">26%</td><td class="num">48%</td></tr>
+    <tr><td>3</td><td class="num">8%</td><td class="num">21%</td><td class="num">38%</td></tr>
+    <tr><td>4</td><td class="num">7%</td><td class="num">20%</td><td class="num">38%</td></tr>
+    <tr><td>5</td><td class="num">8%</td><td class="num">21%</td><td class="num">38%</td></tr>
+    <tr class="row-median"><td>Median</td><td class="num">8%</td><td class="num">21%</td><td class="num">38%</td></tr>
+    <tr><td>Mean</td><td class="num">8.2%</td><td class="num">21.6%</td><td class="num">40%</td></tr>
+    <tr class="row-median"><td><strong>Chairman</strong></td><td class="num"><strong>8%</strong></td><td class="num"><strong>20%</strong></td><td class="num"><strong>38%</strong></td></tr>
+  </table>
+
+  <h2>Where the Council Agrees</h2>
+  <ul>
+    <li><strong>Alpic is the single point of failure.</strong> Contrarian + First Principles + Executor + all 5 reviewers converge.</li>
+    <li><strong>Judge-fit is real but oversold.</strong> All 5 reviewers flagged 28% P(1st) as best-case anchor.</li>
+    <li><strong>8-acronym cognitive load is a known liability</strong> — and the CPM line is buried in beat 4.</li>
+    <li><strong>"Council-validated plan" ≠ evidence at T-30.</strong> Base rates apply with full weight.</li>
+    <li><strong>Person C is the human bottleneck</strong> — three SDKs solo + Alpic + rehearsal collision.</li>
+  </ul>
+
+  <h2>Where the Council Clashes</h2>
+  <p>Contrarian (6/14/28) vs. Expansionist (28/58/82). A 22pp gap on P(1st). Both reasonable from their starting point.</p>
+  <p><strong>Resolution:</strong> the Expansionist's tailwind is conditional on the demo actually running. The Contrarian's failure modes fire whether or not Alpic is up. Multiply through: judge-fit pays out only on a successful demo, and P(successful demo at T-30 with zero code) is the binding constraint. Hence anchor closer to the Executor.</p>
+
+  <h2>Blind Spots the Council Caught (in peer review)</h2>
+  <ul>
+    <li><strong>Demo slot lottery.</strong> Slots 3-7 in a 10:30 PM lineup are the graveyard. ~5pp swing, exogenous to prep.</li>
+    <li><strong>Field strength — tournament not exam.</strong> Nobody modeled the other teams. A polished repeat-winner team or a working AdTech tool neutralizes FairLet's edge.</li>
+    <li><strong>Rehearsal-budget double-book.</strong> Plan needs 3+ run-throughs of the 2:30, but Person C eats the same hour porting Alpic. You will get one rehearsal, possibly zero.</li>
+    <li><strong>Pitcher A delivery variance.</strong> Unrehearsed, 40% on-land / 13% on-fumble per the Expansionist's own model.</li>
+    <li><strong>Track 02 political risk</strong> — only the Contrarian flagged. A sharp VC will press.</li>
+    <li><strong>First-time-London social proof asymmetry</strong> vs. repeat-winner teams.</li>
+  </ul>
+
+  <h2>Highest-Leverage Moves in the Next 30 Minutes</h2>
+  <table class="table">
+    <tr><th>#</th><th>Move</th><th>Expected lift</th></tr>
+    <tr>
+      <td>1</td>
+      <td><strong>Lock Alpic deployment + hit-test from a phone NOT on team Wi-Fi by 9:00 PM.</strong> This is the binding constraint. If Alpic isn't reachable from a judge's laptop, all three numbers collapse 10-15pp.</td>
+      <td class="num">+10-15pp on P(Top 3)</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><strong>Rip out 4 of the 8 acronyms.</strong> Move the £18.40 / "publishers earn 1.42× more" line to the opening of beat 4 with a 2-second silence after it.</td>
+      <td class="num">+3-5pp on P(Top 3)</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><strong>Pre-write 3 adversarial Q&A answers tonight:</strong> (a) "Isn't Trust-Adjusted CPM unfalsifiable?" (b) "How does sell-side gating not just kill your inventory?" (c) "What stops Meta from doing this in-house?"</td>
+      <td class="num">+5pp on P(Top 3)</td>
+    </tr>
+  </table>
+
+  <div class="one-thing">
+    <h3>The one thing to do first</h3>
+    <p>Person C stops everything else and gets Alpic deployed, traced, and hit from an off-network device by 9:00 PM — before any rehearsal, before any deck polish, before any other integration. If this works, P(Top 3) climbs toward 28%. If it doesn't, you're shipping a backup video and competing for 5th. Every other lever in this verdict is downstream of this one.</p>
+  </div>
+
+  <h2>Full Advisor Responses</h2>
+  <details>
+    <summary>The Contrarian — 6 / 14 / 28</summary>
+    <div class="body">
+      <p>Below baseline. Track 02 fit isn't partially mitigated — it's fatal. A gate that BLOCKS inventory on a sell-side track is the wrong instinct; the Trust-Adjusted CPM reframe is a slide, not a product. Toledo (Thrad GTM) smells yield-suppression dressed as yield-protection in 30 seconds. The £18.40 at 1.42× number is unfalsifiable theater — invented multiplier, invented baseline, no auction context.</p>
+      <p>No code at T-30 + four cold-start sponsor integrations + chat UI + dashboard + policy judge + 12 listings + duo screenplay = something gets cut. Probably 20% of sponsor-bucket points lost. "Inherits proven Context Guardian winning pattern" is exactly the trap — if any judge recognises this as a re-skin in a legally-softer vertical, originality is cooked.</p>
+      <p>Hardcoded keyword-matched demo + live LLM only on Q&A is the kill shot waiting to land. Gelberg (governance) and Lewis (CTO) will ask for an adversarial prompt. That's where it dies.</p>
+      <p><strong>+/-15pp lever:</strong> whether the live Alpic MCP endpoint actually responds when a judge hits it from their laptop during Q&A. Works = +15. Hangs or 500s = -15 and you're out of the money entirely.</p>
+    </div>
+  </details>
+  <details>
+    <summary>The First Principles Thinker — 12 / 32 / 58</summary>
+    <div class="body">
+      <p>What actually produces a "win" tonight? Seven specific humans, sitting in a room at 10:30 PM, deciding which 2:30 demo made them feel something they couldn't unfeel. Not code quality. Not architecture. Not sponsor integration depth — judges check boxes, they don't grade rigor.</p>
+      <p>Three mechanisms produce the durable memory: emotional anchor in first 15 seconds (Meta $115M does this), a phrase the judges repeat to each other afterwards (Trust-Adjusted CPM is engineered for this), live proof — Overmind console on the wall + a hittable Alpic URL convert skepticism into "huh, it actually works."</p>
+      <p>The Track 02 fit issue is real but secondary — judges rationalise fit when the demo lands. The cold-start integration risk is the actual killer.</p>
+      <p>You're not the favourite, but you're in the top quartile of a small field with an above-average plan.</p>
+      <p><strong>+/-15pp lever:</strong> whether the Alpic MCP endpoint is live and hittable from a judge's laptop at demo time.</p>
+    </div>
+  </details>
+  <details>
+    <summary>The Expansionist — 28 / 58 / 82  <em>(outlier — all 5 reviewers flagged)</em></summary>
+    <div class="body">
+      <p>What the room is sleeping on: this is not a hackathon project, it's a judge-fitted weapon. Gelberg (10 Downing Street AI governance) literally wakes up thinking about algorithmic discrimination. The Overmind founders see their own trace console on the wall during Beat 2 — that's not integration, that's reflexive ego-stroking on stage. Toledo runs conversational ads GTM and is being handed a Trust-Adjusted CPM with a 1.42× multiplier he can quote in his next deck. The Equality Act 2010 is the only live UK regulatory wedge in conversational commerce, and FairLet is the only team that will name it.</p>
+      <p>The sponsor-bucket math is decisive: 40% of the score is mechanical, and FairLet doesn't sprinkle sponsors — every beat <em>needs</em> all four. Most teams half-integrate two and pray.</p>
+      <p>Cold open with Meta $115M is a steal — judges remember the first 15 and the last 15. Duo live + hardcoded backbone + video failsafe by 9:30 = the floor is "polished" and the ceiling is "won the room before Q&A." Reference P(1st)=7% is for unstructured teams; this is council-validated with role separation pre-locked at T-30.</p>
+      <p><strong>+/-15pp lever:</strong> Pitcher A's delivery on the cold open. Land Meta-$115M-to-"we-built-the-layer" in under 20 seconds with conviction, and 1st jumps to 40%+. Fumble it and the regulatory framing reads as lecture, not product — drops to 13%.</p>
+    </div>
+  </details>
+  <details>
+    <summary>The Outsider — 6 / 18 / 35</summary>
+    <div class="body">
+      <p>Fresh-eyes read. In 2:30 I will retain exactly one thing. The Meta $115M opener is genuinely sticky — it's the kind of stat that makes a non-expert sit up. The red "BLOCKED" card with plain-English Equality Act citation is the second thing I'll remember. That's a working narrative spine.</p>
+      <p>But I'm worried about cognitive load. Eight acronyms in 150 seconds means I'll tune out by buzzword four. "Trust-Adjusted CPM at £18.40, 1.42× baseline" — that's the actual business case, and it's buried in beat 4 as a single line. A fresh judge won't catch why that number matters unless someone says "this makes publishers more money" in plain English.</p>
+      <p>The bigger issue: this is two products. "Recommends rentals" and "blocks discriminatory ads" share a demo but solve different problems. Judges from VC backgrounds will ask "what are you actually selling?" and the answer isn't crisp. The governance judge will love it. The Thrad GTM judge cares about conversational ads revenue — the CPM line is for him, but it's whispered.</p>
+      <p>Top 5 feels reachable because the demo has visual moments and a real cold-open. 1st is hard because two-products-in-one rarely wins clean.</p>
+      <p><strong>+/-15pp lever:</strong> whether the presenters retire half the jargon and put the £18.40 / "publishers earn 1.42× more" line at the <em>front</em> of beat 4 with a beat of silence after it.</p>
+    </div>
+  </details>
+  <details>
+    <summary>The Executor — 9 / 22 / 42  <em>(council anchor)</em></summary>
+    <div class="body">
+      <p>Monday-morning reality: this team is shipping pure vapor at T-30. Zero code, two cold-start integrations (Alpic, Overmind), one person carrying three sponsor SDKs solo, and 4 hours hard freeze. The critical path runs through Person C, full stop. If Alpic's deploy has any auth/region/cold-start gotcha — and you've never touched it — that's 60-90 minutes you don't have. Their 8:30 PM "end-to-end LOCAL" target is aggressive given nothing exists yet; realistic slip is 9:00. That compresses the Alpic port into 30 minutes, which is where this dies.</p>
+      <p>What specifically breaks: Person C tries to do Alpic + Overmind + Tavily + Cursor SDK in 4 hours. They'll get 2 of 4 working. The hardcoded keyword-matched demo beats are the smart move — that's what saves the demo when the live policy judge flakes. But if Alpic isn't deployed, the sponsor-bucket 40% gets gutted. You lose 1.5-2 rubric points and drop out of top 3 immediately.</p>
+      <p>The Top 5 number is more achievable because the planning quality is genuinely above-median for a 4-hour hack — most teams arrive with a vibe, not a screenplay. The backup video at 9:30 is the single best decision in this plan; it's the floor.</p>
+      <p><strong>+/-15pp lever:</strong> whether Person C has Alpic MCP deployed and traced by 9:00 PM.</p>
+    </div>
+  </details>
+
+  <h2>Peer Review Highlights</h2>
+  <details>
+    <summary>4/5 reviewers picked the Executor (C) as best-calibrated. 5/5 flagged the Expansionist (E) as the biggest calibration error.</summary>
+    <div class="body">
+      <p><strong>Convergence on strongest:</strong> Four reviewers named the Executor. Reasoning: C is the only advisor pricing the binding constraint (Alpic at T-30 with zero code) and offering a specific time gate (9:00 PM) and specific consequence (drop from top 3 if 2/4 integrations ship). One reviewer picked First Principles for mechanism-based reasoning. Both anchor on the same Alpic single-point-of-failure.</p>
+      <p><strong>Convergence on blind spot:</strong> All five reviewers flagged the Expansionist's 28% P(1st) as a 4× lift over baseline on a team with no code, anchored on judge-fit alone. "Council-validated ≠ evidence." "Treats plan as artifact." "Conflates weapon design with weapon built."</p>
+      <p><strong>What all 5 advisors missed:</strong></p>
+      <ul>
+        <li><strong>Demo slot lottery.</strong> Slots 3-7 in a 10:30 PM lineup are the graveyard. ~5pp swing, exogenous to prep. (Reviewers 1, 5)</li>
+        <li><strong>Field strength.</strong> Nobody modeled the other teams. Tournament not exam. (Reviewers 4, 5)</li>
+        <li><strong>Rehearsal-budget collision.</strong> Plan needs 3+ run-throughs but Person C eats the same hour porting Alpic — plan double-books. (Reviewer 3)</li>
+        <li><strong>Person A delivery variance.</strong> Highest-variance input — dominates Alpic-uptime risk. (Reviewer 2)</li>
+        <li><strong>First-time-London social proof asymmetry</strong> vs. repeat-winner teams. (Reviewer 5)</li>
+      </ul>
+      <p><strong>Reviewer estimate convergence:</strong> Median 8/21/38, mean 8.2/21.6/40. Tight clustering around the Executor's range with slight upward bias on P(any) for the planning quality lift.</p>
+    </div>
+  </details>
+
+  <footer>
+    Generated 2026-05-28, ~18:30 BST · LLM Council methodology by Andrej Karpathy · Cursor × Thrad AdTech London Hackathon<br>
+    Transcript: <code>council-transcript-2026-05-28-1830.md</code> · Earlier session: <code>council-report-2026-05-28-1810.html</code>
+  </footer>
+
+</div>
+</body>
+</html>
