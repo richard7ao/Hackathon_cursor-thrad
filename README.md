@@ -4,6 +4,8 @@
 
 [![Live](https://img.shields.io/badge/MCP-live-c0392b)](https://fairlet-7af52db6.alpic.live) [![Playground](https://img.shields.io/badge/playground-open-2d6a4f)](https://fairlet-7af52db6.alpic.live/try) [![Track](https://img.shields.io/badge/Track%2002-Sell--Side%20%26%20Measurement-8860b) ](#) [![Tests](https://img.shields.io/badge/tests-58%20passing-2d6a4f)](#testing)
 
+<img width="778" height="669" alt="image" src="https://github.com/user-attachments/assets/5a3bfdad-6377-45ba-a19f-4855b09a47e7" />
+
 ---
 
 ## Why this exists
