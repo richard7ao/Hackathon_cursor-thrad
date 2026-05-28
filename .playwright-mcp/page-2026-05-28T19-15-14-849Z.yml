@@ -1,0 +1,1125 @@
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - navigation [ref=e4]:
+      - link "← Back to background-agents.com" [ref=e5] [cursor=pointer]:
+        - /url: /
+      - link "Ona" [ref=e6] [cursor=pointer]:
+        - /url: https://ona.com/?utm_source=background-agents&utm_medium=microsite&utm_campaign=background-agent-manual
+        - img "Ona" [ref=e7]
+    - banner [ref=e11]:
+      - generic [ref=e12]:
+        - heading "The background agent tool landscape" [level=1] [ref=e13]
+        - paragraph [ref=e14]: A hand-curated selection of 95+ infrastructure providers and open-source tools that enable you to build background agent infrastructure, mapped across 11 layers of the stack.
+        - img [ref=e17]:
+          - generic [ref=e20]: CODE
+          - generic [ref=e21]: REVIEW
+          - generic [ref=e22]: TEST
+      - generic [ref=e46] [cursor=pointer]:
+        - img "Inside the Background Agent Landscape" [ref=e47]
+        - img [ref=e50]
+    - generic [ref=e53]:
+      - generic [ref=e55]:
+        - generic [ref=e56]:
+          - generic [ref=e57]:
+            - generic [ref=e58]:
+              - text: Interface
+              - button "Layer info" [ref=e59]:
+                - img [ref=e60]
+            - generic [ref=e64]:
+              - generic [ref=e65] [cursor=pointer]:
+                - img [ref=e67]
+                - generic [ref=e72]: Slack
+              - generic [ref=e73] [cursor=pointer]:
+                - img [ref=e75]
+                - generic [ref=e77]: Linear
+              - generic [ref=e78] [cursor=pointer]:
+                - img [ref=e80]
+                - generic [ref=e82]: Jira
+              - generic [ref=e83] [cursor=pointer]:
+                - img [ref=e85]
+                - generic [ref=e87]: GitHub
+              - generic [ref=e88] [cursor=pointer]:
+                - img [ref=e90]
+                - generic [ref=e92]: GitLab Duo
+              - generic [ref=e93] [cursor=pointer]:
+                - img [ref=e95]
+                - generic [ref=e97]: Backstage
+              - generic [ref=e98] [cursor=pointer]:
+                - img [ref=e100]
+                - generic [ref=e102]: Ona
+              - generic [ref=e103] [cursor=pointer]:
+                - img [ref=e105]
+                - generic [ref=e107]: Codex App
+              - generic [ref=e108] [cursor=pointer]:
+                - img [ref=e110]
+                - generic [ref=e117]: Conductor
+              - generic [ref=e118] [cursor=pointer]:
+                - img [ref=e120]
+                - generic [ref=e122]: Kiro Autonomous
+              - generic [ref=e123] [cursor=pointer]:
+                - img [ref=e125]
+                - generic [ref=e127]: Microsoft Teams
+              - generic [ref=e128] [cursor=pointer]:
+                - img [ref=e130]
+                - generic [ref=e132]: VS Code Server
+              - generic [ref=e133] [cursor=pointer]:
+                - img [ref=e135]
+                - generic [ref=e137]: JetBrains Remote Dev
+          - generic [ref=e138]:
+            - generic [ref=e139]:
+              - text: Runtime
+              - button "Layer info" [ref=e140]:
+                - img [ref=e141]
+            - generic [ref=e145]:
+              - generic [ref=e146]:
+                - generic [ref=e147]:
+                  - text: Sandbox
+                  - button "Layer info" [ref=e148]:
+                    - img [ref=e149]
+                - generic [ref=e153]:
+                  - generic [ref=e154] [cursor=pointer]:
+                    - img [ref=e156]
+                    - generic [ref=e158]: Ona
+                  - generic [ref=e159] [cursor=pointer]:
+                    - img [ref=e161]
+                    - generic [ref=e170]: Daytona
+                  - generic [ref=e171] [cursor=pointer]:
+                    - img [ref=e173]
+                    - generic [ref=e175]: Modal
+                  - generic [ref=e176] [cursor=pointer]:
+                    - img [ref=e178]
+                    - generic [ref=e180]: Fly.io
+                  - generic [ref=e181] [cursor=pointer]:
+                    - img [ref=e183]
+                    - generic [ref=e186]: OpenComputer
+                  - generic [ref=e187] [cursor=pointer]:
+                    - img [ref=e189]
+                    - generic [ref=e192]: Runloop
+                  - generic [ref=e193] [cursor=pointer]:
+                    - img [ref=e195]
+                    - generic [ref=e197]: Docker
+                  - generic [ref=e198] [cursor=pointer]:
+                    - img [ref=e200]
+                    - generic [ref=e202]: Cloudflare Agents SDK
+                  - generic [ref=e203] [cursor=pointer]:
+                    - img [ref=e205]
+                    - generic [ref=e207]: Codespaces
+                  - generic [ref=e208] [cursor=pointer]:
+                    - img [ref=e210]
+                    - generic [ref=e212]: Coder
+                  - generic [ref=e213] [cursor=pointer]:
+                    - img [ref=e215]
+                    - generic [ref=e238]: Blaxel
+                  - generic [ref=e239] [cursor=pointer]:
+                    - img [ref=e241]
+                    - generic [ref=e246]: OpenSandbox
+                  - generic [ref=e247] [cursor=pointer]:
+                    - img [ref=e249]
+                    - generic [ref=e251]: Vercel Sandbox
+                  - generic [ref=e252] [cursor=pointer]:
+                    - img [ref=e254]
+                    - generic [ref=e258]: Devin
+                  - generic [ref=e259] [cursor=pointer]:
+                    - img [ref=e261]
+                    - generic [ref=e263]: Namespace
+                  - generic [ref=e264] [cursor=pointer]:
+                    - img [ref=e266]
+                    - generic [ref=e273]: Northflank
+              - generic [ref=e274]:
+                - generic [ref=e275]:
+                  - text: Orchestration
+                  - button "Layer info" [ref=e276]:
+                    - img [ref=e277]
+                - generic [ref=e281]:
+                  - generic [ref=e282] [cursor=pointer]:
+                    - img [ref=e284]
+                    - generic [ref=e286]: Ona
+                  - generic [ref=e287] [cursor=pointer]:
+                    - img [ref=e289]
+                    - generic [ref=e291]: Temporal
+                  - generic [ref=e292] [cursor=pointer]:
+                    - img [ref=e294]
+                    - generic [ref=e296]: GitHub Actions
+                  - generic [ref=e297] [cursor=pointer]:
+                    - img [ref=e299]
+                    - generic [ref=e301]: GitLab Duo Flows
+                  - generic [ref=e302] [cursor=pointer]:
+                    - img [ref=e304]
+                    - generic [ref=e306]: n8n
+                  - generic [ref=e307] [cursor=pointer]:
+                    - img [ref=e309]
+                    - generic [ref=e311]: Open SWE
+                  - generic [ref=e312] [cursor=pointer]:
+                    - img [ref=e314]
+                    - generic [ref=e316]: Claude Agent SDK
+                  - generic [ref=e317] [cursor=pointer]:
+                    - img [ref=e319]
+                    - generic [ref=e321]: Codex Web
+                  - generic [ref=e322] [cursor=pointer]:
+                    - img [ref=e324]
+                    - generic [ref=e326]: Coder
+                  - generic [ref=e327] [cursor=pointer]:
+                    - img [ref=e329]
+                    - generic [ref=e331]: Kiro Autonomous
+                  - generic [ref=e332] [cursor=pointer]:
+                    - img [ref=e334]
+                    - generic [ref=e336]: Symphony
+                  - generic [ref=e337] [cursor=pointer]:
+                    - img [ref=e339]
+                    - generic [ref=e343]: Open-Inspect
+                  - generic [ref=e344] [cursor=pointer]:
+                    - img [ref=e346]
+                    - generic [ref=e348]: Cursor Cloud
+                  - generic [ref=e349] [cursor=pointer]:
+                    - img [ref=e351]
+                    - generic [ref=e355]: Devin
+                  - generic [ref=e356] [cursor=pointer]:
+                    - img [ref=e358]
+                    - generic [ref=e360]: Warp Oz
+              - generic [ref=e361]:
+                - generic [ref=e362]:
+                  - text: Security
+                  - button "Layer info" [ref=e363]:
+                    - img [ref=e364]
+                - generic [ref=e368]:
+                  - generic [ref=e369] [cursor=pointer]:
+                    - img [ref=e371]
+                    - generic [ref=e373]: Veto
+                  - generic [ref=e374] [cursor=pointer]:
+                    - img [ref=e376]
+                    - generic [ref=e378]: Vault
+                  - generic [ref=e379] [cursor=pointer]:
+                    - img [ref=e381]
+                    - generic [ref=e386]: OPA
+                  - generic [ref=e387] [cursor=pointer]:
+                    - img [ref=e389]
+                    - generic [ref=e391]: Vercel Credential Brokering
+                  - generic [ref=e392] [cursor=pointer]:
+                    - img [ref=e394]
+                    - generic [ref=e396]: Keycard
+                  - generic [ref=e397] [cursor=pointer]:
+                    - img [ref=e399]
+                    - generic [ref=e404]: nono
+          - generic [ref=e405]:
+            - generic [ref=e406]:
+              - generic [ref=e407]:
+                - text: Review
+                - button "Layer info" [ref=e408]:
+                  - img [ref=e409]
+              - generic [ref=e413]:
+                - generic [ref=e414] [cursor=pointer]:
+                  - img [ref=e416]
+                  - generic [ref=e418]: Ona
+                - generic [ref=e419] [cursor=pointer]:
+                  - img [ref=e421]
+                  - generic [ref=e423]: GitLab Duo Review
+                - generic [ref=e424] [cursor=pointer]:
+                  - img [ref=e426]
+                  - generic [ref=e431]: Greptile
+                - generic [ref=e432] [cursor=pointer]:
+                  - img [ref=e434]
+                  - generic [ref=e436]: CodeRabbit
+                - generic [ref=e437] [cursor=pointer]:
+                  - img [ref=e439]
+                  - generic [ref=e441]: Claude Review
+                - generic [ref=e442] [cursor=pointer]:
+                  - img [ref=e444]
+                  - generic [ref=e446]: Copilot Reviews
+                - generic [ref=e447] [cursor=pointer]:
+                  - img [ref=e449]
+                  - generic [ref=e451]: Cursor Bugbot
+                - generic [ref=e452] [cursor=pointer]:
+                  - img [ref=e454]
+                  - generic [ref=e458]: Devin
+                - generic [ref=e459] [cursor=pointer]:
+                  - img [ref=e461]
+                  - generic [ref=e463]: Vercel Agent
+                - generic [ref=e464] [cursor=pointer]:
+                  - generic [ref=e466]: G
+                  - generic [ref=e467]: Gemini Code Assist
+            - generic [ref=e468]:
+              - generic [ref=e469]:
+                - text: Agent Tooling
+                - button "Layer info" [ref=e470]:
+                  - img [ref=e471]
+              - generic [ref=e475]:
+                - generic [ref=e476] [cursor=pointer]:
+                  - img [ref=e478]
+                  - generic [ref=e480]: VNC
+                - generic [ref=e481] [cursor=pointer]:
+                  - img [ref=e483]
+                  - generic [ref=e485]: Computer Use
+                - generic [ref=e486] [cursor=pointer]:
+                  - img [ref=e488]
+                  - generic [ref=e490]: Browserbase
+                - generic [ref=e491] [cursor=pointer]:
+                  - img [ref=e493]
+                  - generic [ref=e495]: agent-browser
+                - generic [ref=e496] [cursor=pointer]:
+                  - img [ref=e498]
+                  - generic [ref=e500]: Chromium
+                - generic [ref=e501] [cursor=pointer]:
+                  - img [ref=e503]
+                  - generic [ref=e505]: Git Worktrees
+                - generic [ref=e506] [cursor=pointer]:
+                  - img [ref=e508]
+                  - generic [ref=e511]: Browser Use
+                - generic [ref=e512] [cursor=pointer]:
+                  - img [ref=e514]
+                  - generic [ref=e516]: Nix
+                - generic [ref=e517] [cursor=pointer]:
+                  - img [ref=e519]
+                  - generic [ref=e521]: Tessl
+          - generic [ref=e522]:
+            - generic [ref=e523]:
+              - generic [ref=e524]:
+                - text: Agents
+                - button "Layer info" [ref=e525]:
+                  - img [ref=e526]
+              - generic [ref=e530]:
+                - generic [ref=e531] [cursor=pointer]:
+                  - img [ref=e533]
+                  - generic [ref=e535]: Claude Code
+                - generic [ref=e536] [cursor=pointer]:
+                  - img [ref=e538]
+                  - generic [ref=e540]: Codex CLI
+                - generic [ref=e541] [cursor=pointer]:
+                  - img [ref=e543]
+                  - generic [ref=e545]: Cursor
+                - generic [ref=e546] [cursor=pointer]:
+                  - img [ref=e548]
+                  - generic [ref=e552]: Devin
+                - generic [ref=e553] [cursor=pointer]:
+                  - img [ref=e555]
+                  - generic [ref=e557]: Factory Droids
+                - generic [ref=e558] [cursor=pointer]:
+                  - img [ref=e560]
+                  - generic [ref=e565]: OpenHands
+                - generic [ref=e566] [cursor=pointer]:
+                  - img [ref=e568]
+                  - generic [ref=e570]: Copilot
+                - generic [ref=e571] [cursor=pointer]:
+                  - img [ref=e573]
+                  - generic [ref=e575]: Gemini CLI
+                - generic [ref=e576] [cursor=pointer]:
+                  - img [ref=e578]
+                  - generic [ref=e580]: Ona
+                - generic [ref=e581] [cursor=pointer]:
+                  - img [ref=e583]
+                  - generic [ref=e588]: Augment Code
+                - generic [ref=e589] [cursor=pointer]:
+                  - img [ref=e591]
+                  - generic [ref=e593]: Deep Agents
+                - generic [ref=e594] [cursor=pointer]:
+                  - img [ref=e596]
+                  - generic [ref=e598]: Goose
+                - generic [ref=e599] [cursor=pointer]:
+                  - img [ref=e601]
+                  - generic [ref=e604]: OpenCode
+                - generic [ref=e605] [cursor=pointer]:
+                  - img [ref=e607]
+                  - generic [ref=e609]: Kiro
+                - generic [ref=e610] [cursor=pointer]:
+                  - img [ref=e612]
+                  - generic [ref=e614]: Cline
+                - generic [ref=e615] [cursor=pointer]:
+                  - img [ref=e617]
+                  - generic [ref=e620]: Kilo Code
+                - generic [ref=e621] [cursor=pointer]:
+                  - img [ref=e623]
+                  - generic [ref=e625]: Windsurf
+                - generic [ref=e626] [cursor=pointer]:
+                  - img [ref=e628]
+                  - generic [ref=e632]: Amp
+                - generic [ref=e633] [cursor=pointer]:
+                  - img [ref=e635]
+                  - generic [ref=e637]: Warp
+            - generic [ref=e638]:
+              - generic [ref=e639]:
+                - text: Models
+                - button "Layer info" [ref=e640]:
+                  - img [ref=e641]
+              - generic [ref=e645]:
+                - generic [ref=e646] [cursor=pointer]:
+                  - img [ref=e648]
+                  - generic [ref=e650]: Claude 4.6
+                - generic [ref=e651] [cursor=pointer]:
+                  - img [ref=e653]
+                  - generic [ref=e655]: GPT-5
+                - generic [ref=e656] [cursor=pointer]:
+                  - img [ref=e658]
+                  - generic [ref=e660]: Gemini 3
+                - generic [ref=e661] [cursor=pointer]:
+                  - img [ref=e663]
+                  - generic [ref=e665]: Llama 4
+                - generic [ref=e666] [cursor=pointer]:
+                  - img [ref=e668]
+                  - generic [ref=e671]: DeepSeek V3
+                - generic [ref=e672] [cursor=pointer]:
+                  - img [ref=e674]
+                  - generic [ref=e676]: Cursor Composer
+                - generic [ref=e677] [cursor=pointer]:
+                  - img [ref=e679]
+                  - generic [ref=e681]: MiniMax M2
+                - generic [ref=e682] [cursor=pointer]:
+                  - img [ref=e684]
+                  - generic [ref=e690]: Kimi K2
+          - generic [ref=e691]:
+            - generic [ref=e692]:
+              - generic [ref=e693]:
+                - text: Benchmarks
+                - button "Layer info" [ref=e694]:
+                  - img [ref=e695]
+              - generic [ref=e699]:
+                - generic [ref=e700] [cursor=pointer]:
+                  - generic [ref=e702]: SWE
+                  - generic [ref=e703]: SWE-bench
+                - generic [ref=e704] [cursor=pointer]:
+                  - generic [ref=e706]: SW2
+                  - generic [ref=e707]: SWE-bench 2
+                - generic [ref=e708] [cursor=pointer]:
+                  - generic [ref=e710]: TB
+                  - generic [ref=e711]: Terminal Bench
+                - generic [ref=e712] [cursor=pointer]:
+                  - img [ref=e714]
+                  - generic [ref=e716]: Rebar
+            - generic [ref=e717]:
+              - generic [ref=e718]:
+                - text: Protocols & Standards
+                - button "Layer info" [ref=e719]:
+                  - img [ref=e720]
+              - generic [ref=e724]:
+                - generic [ref=e725] [cursor=pointer]:
+                  - img [ref=e727]
+                  - generic [ref=e729]: MCP
+                - generic [ref=e730] [cursor=pointer]:
+                  - generic [ref=e732]: A2A
+                  - generic [ref=e733]: A2A
+                - generic [ref=e734] [cursor=pointer]:
+                  - generic [ref=e736]: ACP
+                  - generic [ref=e737]: ACP
+                - generic [ref=e738] [cursor=pointer]:
+                  - generic [ref=e740]: MD
+                  - generic [ref=e741]: AGENTS.md
+                - generic [ref=e742] [cursor=pointer]:
+                  - img [ref=e744]
+                  - generic [ref=e749]: Devcontainer
+                - generic [ref=e750] [cursor=pointer]:
+                  - generic [ref=e752]: OCI
+                  - generic [ref=e753]: OCI
+                - generic [ref=e754] [cursor=pointer]:
+                  - img [ref=e756]
+                  - generic [ref=e758]: OpenTelemetry
+                - generic [ref=e759] [cursor=pointer]:
+                  - generic [ref=e761]: AT
+                  - generic [ref=e762]: Agent Trace
+                - generic [ref=e763] [cursor=pointer]:
+                  - generic [ref=e765]: SK
+                  - generic [ref=e766]: Agent Skills
+                - generic [ref=e767] [cursor=pointer]:
+                  - generic [ref=e769]: AA
+                  - generic [ref=e770]: Agent Auth
+            - generic [ref=e771]:
+              - generic [ref=e772]:
+                - text: ROI & Measurement
+                - button "Layer info" [ref=e773]:
+                  - img [ref=e774]
+              - generic [ref=e778]:
+                - generic [ref=e779] [cursor=pointer]:
+                  - generic [ref=e781]: DX
+                  - generic [ref=e782]: DX
+                - generic [ref=e783] [cursor=pointer]:
+                  - img [ref=e785]
+                  - generic [ref=e787]: Cursor Analytics
+                - generic [ref=e788] [cursor=pointer]:
+                  - img [ref=e790]
+                  - generic [ref=e792]: Jellyfish
+                - generic [ref=e793] [cursor=pointer]:
+                  - img [ref=e795]
+                  - generic [ref=e797]: Git AI
+                - generic [ref=e798] [cursor=pointer]:
+                  - img [ref=e800]
+                  - generic [ref=e806]: Entire CLI
+        - generic [ref=e809]: Select a vendor to see details
+      - generic [ref=e810]:
+        - button "Why these tools?" [ref=e811] [cursor=pointer]
+        - generic [ref=e812]: ·
+        - link "Anything missing? Tag us on" [ref=e813] [cursor=pointer]:
+          - /url: https://x.com/intent/tweet?text=%40loujaybee%20I'd%20suggest%20adding%20this%20to%20the%20background%20agent%20tool%20landscape%3A&url=https%3A%2F%2Fbackground-agents.com
+          - text: Anything missing? Tag us on
+          - img [ref=e814]
+          - img [ref=e816]
+        - generic [ref=e820]: ·
+        - button "Download as PNG" [ref=e821] [cursor=pointer]:
+          - img [ref=e822]
+          - text: Download as PNG
+        - generic [ref=e824]: ·
+        - button "Embed" [ref=e825] [cursor=pointer]:
+          - img [ref=e826]
+          - text: Embed
+    - generic [ref=e830]:
+      - generic [ref=e831]:
+        - link "Go to backgroundagents.com" [ref=e832] [cursor=pointer]:
+          - /url: /
+          - img [ref=e833]
+        - heading "What are background agents?" [level=2] [ref=e835]
+      - generic [ref=e836]:
+        - generic [ref=e837]:
+          - generic [ref=e838]: The self-driving codebase
+          - generic [ref=e839]: Autonomous agents across the SDLC
+          - paragraph [ref=e840]: "Coding agents made individuals faster. Background agents make codebases self-driving — autonomous, event-triggered, running across the SDLC without a human at the keyboard. Companies like Stripe, Ramp, and Uber are all asking the same question: how do we get there?"
+          - img [ref=e843]:
+            - generic [ref=e846]: CODE
+            - generic [ref=e847]: REVIEW
+            - generic [ref=e848]: TEST
+        - generic [ref=e870]:
+          - generic [ref=e871]: The false summit
+          - generic [ref=e872]: Our systems are bottlenecked by localhost
+          - paragraph [ref=e873]: Autocomplete became coding agents. Coding agents became three coding agents running in parallel on your laptop. But localhost wasn’t built for this. Agents fight over machine state, secrets become exposed, and everything stops when the machine sleeps.
+        - generic [ref=e877]:
+          - generic [ref=e878]: Background agent primitives
+          - generic [ref=e879]: Agents that run in the background
+          - paragraph [ref=e880]: Agents need to run in the background, securely, and at scale. Sandboxed execution, governance, context and connectivity, and fleet coordination — one task across many repositories, each agent working independently.
+        - generic [ref=e884]:
+          - generic [ref=e885]: The software factory
+          - generic [ref=e886]: Scale your software factory
+          - paragraph [ref=e887]: "Today your engineers stand at every station: writing, reviewing, testing. Background agents change the operating model. The factory runs, but your engineers move on the loop instead of in it."
+          - img [ref=e889]:
+            - generic [ref=e893]: PLAN
+            - generic [ref=e896]: CODE
+            - generic [ref=e899]: REVIEW
+            - generic [ref=e902]: TEST
+            - generic [ref=e905]: DEPLOY
+        - generic [ref=e950]:
+          - generic [ref=e951]: Keep reading
+          - generic [ref=e952]: Read the full microsite
+          - generic [ref=e953]: Learn how companies like Stripe, Ramp, and Uber are thinking about the path from coding agents to a self-driving codebase — with interactive visuals, deep-dive sections, and the complete narrative.
+          - link "Go to background-agents.com →" [ref=e954] [cursor=pointer]:
+            - /url: /
+      - generic [ref=e955]:
+        - button "Go to panel 1" [ref=e956] [cursor=pointer]
+        - button "Go to panel 2" [ref=e957] [cursor=pointer]
+        - button "Go to panel 3" [ref=e958] [cursor=pointer]
+        - button "Go to panel 4" [ref=e959] [cursor=pointer]
+        - button "Go to panel 5" [ref=e960] [cursor=pointer]
+    - generic [ref=e961]:
+      - link "Background Agents Virtual Summit Summit Background Agents Virtual Summit 13 on-demand sessions from engineering teams building, deploying, and verifying background agents in production. Watch sessions →" [ref=e962] [cursor=pointer]:
+        - /url: /summit/
+        - img "Background Agents Virtual Summit" [ref=e964]
+        - generic [ref=e965]:
+          - generic [ref=e966]: Summit
+          - generic [ref=e967]: Background Agents Virtual Summit
+          - generic [ref=e968]: 13 on-demand sessions from engineering teams building, deploying, and verifying background agents in production.
+          - generic [ref=e969]:
+            - text: Watch sessions
+            - generic [ref=e970]: →
+      - link "The complete background agents guide Guide The complete background agents guide Every insight from the Background Agents Summit on how Stripe, Uber, and others securely roll out background agents. Stripe Ramp Spotify Uber Harvey OpenAI Read the guide →" [ref=e972] [cursor=pointer]:
+        - /url: https://ona.com/guides/background-agents?utm_source=background-agents&utm_medium=microsite&utm_campaign=background-agent-manual
+        - img "The complete background agents guide" [ref=e975]
+        - generic [ref=e976]:
+          - generic [ref=e977]: Guide
+          - generic [ref=e978]: The complete background agents guide
+          - generic [ref=e979]: Every insight from the Background Agents Summit on how Stripe, Uber, and others securely roll out background agents.
+          - generic [ref=e980]:
+            - img "Stripe" [ref=e982]
+            - img "Ramp" [ref=e984]
+            - img "Spotify" [ref=e986]
+            - img "Uber" [ref=e988]
+            - img "Harvey" [ref=e990]
+            - img "OpenAI" [ref=e992]
+          - generic [ref=e993]:
+            - text: Read the guide
+            - generic [ref=e994]: →
+    - button "View recent changes":
+      - text: What's new
+      - generic: "7"
+    - contentinfo [ref=e995]:
+      - generic [ref=e996]:
+        - generic [ref=e997]: Changelog
+        - generic [ref=e998]:
+          - generic [ref=e1003]:
+            - generic [ref=e1004]: Apr 1
+            - generic [ref=e1005]: Added Kilo Code, MiniMax, Kimi K2, nono, Northflank, Entire CLI
+          - generic [ref=e1010]:
+            - generic [ref=e1011]: Mar 26
+            - generic [ref=e1012]: Added Warp, Warp Oz, Browser Use, Namespace, Augment Code expanded description
+          - generic [ref=e1017]:
+            - generic [ref=e1018]: Mar 25
+            - generic [ref=e1019]: Added Agent Auth Protocol, Cursor Cloud, Vercel Agent, Claude Review, Git AI, Amp, expanded Devin across multiple layers
+          - generic [ref=e1024]:
+            - generic [ref=e1025]: Mar 25
+            - generic [ref=e1026]: Added launch video — inside the background agent landscape
+          - generic [ref=e1031]:
+            - generic [ref=e1032]: Mar 18
+            - generic [ref=e1033]: Added inclusion criteria — "Why these tools?"
+          - generic [ref=e1038]:
+            - generic [ref=e1039]: Mar 18
+            - generic [ref=e1040]: Embed as iframe or download as PNG
+          - generic [ref=e1044]:
+            - generic [ref=e1045]: Mar 5
+            - generic [ref=e1046]: Initial landscape — 11 layers, 95+ vendors
+      - link "← Back to background-agents.com" [ref=e1047] [cursor=pointer]:
+        - /url: /
+      - generic [ref=e1048]:
+        - generic [ref=e1049]: Created by
+        - generic [ref=e1050]:
+          - generic [ref=e1051]: Lou
+          - generic [ref=e1052]:
+            - link "Lou on X" [ref=e1053] [cursor=pointer]:
+              - /url: https://x.com/loujaybee
+              - img [ref=e1054]
+            - link "Lou on LinkedIn" [ref=e1056] [cursor=pointer]:
+              - /url: https://linkedin.com/in/loujaybee
+              - img [ref=e1057]
+        - generic [ref=e1059]: and the team at
+        - link "Ona" [ref=e1060] [cursor=pointer]:
+          - /url: https://ona.com/?utm_source=background-agents&utm_medium=microsite&utm_campaign=background-agent-manual
+          - img "Ona" [ref=e1061]
+    - generic:
+      - generic:
+        - generic:
+          - generic:
+            - heading [level=1]: The Background Agent Tool Landscape
+            - generic: background-agents.com/landscape
+          - generic:
+            - generic:
+              - generic:
+                - text: Interface
+                - button:
+                  - img
+              - generic:
+                - generic:
+                  - generic:
+                    - img
+                  - generic: Slack
+                - generic:
+                  - generic:
+                    - img
+                  - generic: Linear
+                - generic:
+                  - generic:
+                    - img
+                  - generic: Jira
+                - generic:
+                  - generic:
+                    - img
+                  - generic: GitHub
+                - generic:
+                  - generic:
+                    - img
+                  - generic: GitLab Duo
+                - generic:
+                  - generic:
+                    - img
+                  - generic: Backstage
+                - generic:
+                  - generic:
+                    - img
+                  - generic: Ona
+                - generic:
+                  - generic:
+                    - img
+                  - generic: Codex App
+                - generic:
+                  - generic:
+                    - img
+                  - generic: Conductor
+                - generic:
+                  - generic:
+                    - img
+                  - generic: Kiro Autonomous
+                - generic:
+                  - generic:
+                    - img
+                  - generic: Microsoft Teams
+                - generic:
+                  - generic:
+                    - img
+                  - generic: VS Code Server
+                - generic:
+                  - generic:
+                    - img
+                  - generic: JetBrains Remote Dev
+            - generic:
+              - generic: Runtime
+              - generic:
+                - generic:
+                  - generic:
+                    - text: Sandbox
+                    - button:
+                      - img
+                  - generic:
+                    - generic:
+                      - generic:
+                        - img
+                      - generic: Ona
+                    - generic:
+                      - generic:
+                        - img
+                      - generic: Daytona
+                    - generic:
+                      - generic:
+                        - img
+                      - generic: Modal
+                    - generic:
+                      - generic:
+                        - img
+                      - generic: Fly.io
+                    - generic:
+                      - generic:
+                        - img
+                      - generic: OpenComputer
+                    - generic:
+                      - generic:
+                        - img
+                      - generic: Runloop
+                    - generic:
+                      - generic:
+                        - img
+                      - generic: Docker
+                    - generic:
+                      - generic:
+                        - img
+                      - generic: Cloudflare Agents SDK
+                    - generic:
+                      - generic:
+                        - img
+                      - generic: Codespaces
+                    - generic:
+                      - generic:
+                        - img
+                      - generic: Coder
+                    - generic:
+                      - generic:
+                        - img
+                      - generic: Blaxel
+                    - generic:
+                      - generic:
+                        - img
+                      - generic: OpenSandbox
+                    - generic:
+                      - generic:
+                        - img
+                      - generic: Vercel Sandbox
+                    - generic:
+                      - generic:
+                        - img
+                      - generic: Devin
+                    - generic:
+                      - generic:
+                        - img
+                      - generic: Namespace
+                    - generic:
+                      - generic:
+                        - img
+                      - generic: Northflank
+                - generic:
+                  - generic:
+                    - text: Orchestration
+                    - button:
+                      - img
+                  - generic:
+                    - generic:
+                      - generic:
+                        - img
+                      - generic: Ona
+                    - generic:
+                      - generic:
+                        - img
+                      - generic: Temporal
+                    - generic:
+                      - generic:
+                        - img
+                      - generic: GitHub Actions
+                    - generic:
+                      - generic:
+                        - img
+                      - generic: GitLab Duo Flows
+                    - generic:
+                      - generic:
+                        - img
+                      - generic: n8n
+                    - generic:
+                      - generic:
+                        - img
+                      - generic: Open SWE
+                    - generic:
+                      - generic:
+                        - img
+                      - generic: Claude Agent SDK
+                    - generic:
+                      - generic:
+                        - img
+                      - generic: Codex Web
+                    - generic:
+                      - generic:
+                        - img
+                      - generic: Coder
+                    - generic:
+                      - generic:
+                        - img
+                      - generic: Kiro Autonomous
+                    - generic:
+                      - generic:
+                        - img
+                      - generic: Symphony
+                    - generic:
+                      - generic:
+                        - img
+                      - generic: Open-Inspect
+                    - generic:
+                      - generic:
+                        - img
+                      - generic: Cursor Cloud
+                    - generic:
+                      - generic:
+                        - img
+                      - generic: Devin
+                    - generic:
+                      - generic:
+                        - img
+                      - generic: Warp Oz
+                - generic:
+                  - generic:
+                    - text: Security
+                    - button:
+                      - img
+                  - generic:
+                    - generic:
+                      - generic:
+                        - img
+                      - generic: Veto
+                    - generic:
+                      - generic:
+                        - img
+                      - generic: Vault
+                    - generic:
+                      - generic:
+                        - img
+                      - generic: OPA
+                    - generic:
+                      - generic:
+                        - img
+                      - generic: Vercel Credential Brokering
+                    - generic:
+                      - generic:
+                        - img
+                      - generic: Keycard
+                    - generic:
+                      - generic:
+                        - img
+                      - generic: nono
+            - generic:
+              - generic:
+                - generic:
+                  - text: Review
+                  - button:
+                    - img
+                - generic:
+                  - generic:
+                    - generic:
+                      - img
+                    - generic: Ona
+                  - generic:
+                    - generic:
+                      - img
+                    - generic: GitLab Duo Review
+                  - generic:
+                    - generic:
+                      - img
+                    - generic: Greptile
+                  - generic:
+                    - generic:
+                      - img
+                    - generic: CodeRabbit
+                  - generic:
+                    - generic:
+                      - img
+                    - generic: Claude Review
+                  - generic:
+                    - generic:
+                      - img
+                    - generic: Copilot Reviews
+                  - generic:
+                    - generic:
+                      - img
+                    - generic: Cursor Bugbot
+                  - generic:
+                    - generic:
+                      - img
+                    - generic: Devin
+                  - generic:
+                    - generic:
+                      - img
+                    - generic: Vercel Agent
+                  - generic:
+                    - generic:
+                      - generic: G
+                    - generic: Gemini Code Assist
+              - generic:
+                - generic:
+                  - text: Agent Tooling
+                  - button:
+                    - img
+                - generic:
+                  - generic:
+                    - generic:
+                      - img
+                    - generic: VNC
+                  - generic:
+                    - generic:
+                      - img
+                    - generic: Computer Use
+                  - generic:
+                    - generic:
+                      - img
+                    - generic: Browserbase
+                  - generic:
+                    - generic:
+                      - img
+                    - generic: agent-browser
+                  - generic:
+                    - generic:
+                      - img
+                    - generic: Chromium
+                  - generic:
+                    - generic:
+                      - img
+                    - generic: Git Worktrees
+                  - generic:
+                    - generic:
+                      - img
+                    - generic: Browser Use
+                  - generic:
+                    - generic:
+                      - img
+                    - generic: Nix
+                  - generic:
+                    - generic:
+                      - img
+                    - generic: Tessl
+            - generic:
+              - generic:
+                - generic:
+                  - text: Agents
+                  - button:
+                    - img
+                - generic:
+                  - generic:
+                    - generic:
+                      - img
+                    - generic: Claude Code
+                  - generic:
+                    - generic:
+                      - img
+                    - generic: Codex CLI
+                  - generic:
+                    - generic:
+                      - img
+                    - generic: Cursor
+                  - generic:
+                    - generic:
+                      - img
+                    - generic: Devin
+                  - generic:
+                    - generic:
+                      - img
+                    - generic: Factory Droids
+                  - generic:
+                    - generic:
+                      - img
+                    - generic: OpenHands
+                  - generic:
+                    - generic:
+                      - img
+                    - generic: Copilot
+                  - generic:
+                    - generic:
+                      - img
+                    - generic: Gemini CLI
+                  - generic:
+                    - generic:
+                      - img
+                    - generic: Ona
+                  - generic:
+                    - generic:
+                      - img
+                    - generic: Augment Code
+                  - generic:
+                    - generic:
+                      - img
+                    - generic: Deep Agents
+                  - generic:
+                    - generic:
+                      - img
+                    - generic: Goose
+                  - generic:
+                    - generic:
+                      - img
+                    - generic: OpenCode
+                  - generic:
+                    - generic:
+                      - img
+                    - generic: Kiro
+                  - generic:
+                    - generic:
+                      - img
+                    - generic: Cline
+                  - generic:
+                    - generic:
+                      - img
+                    - generic: Kilo Code
+                  - generic:
+                    - generic:
+                      - img
+                    - generic: Windsurf
+                  - generic:
+                    - generic:
+                      - img
+                    - generic: Amp
+                  - generic:
+                    - generic:
+                      - img
+                    - generic: Warp
+              - generic:
+                - generic:
+                  - text: Models
+                  - button:
+                    - img
+                - generic:
+                  - generic:
+                    - generic:
+                      - img
+                    - generic: Claude 4.6
+                  - generic:
+                    - generic:
+                      - img
+                    - generic: GPT-5
+                  - generic:
+                    - generic:
+                      - img
+                    - generic: Gemini 3
+                  - generic:
+                    - generic:
+                      - img
+                    - generic: Llama 4
+                  - generic:
+                    - generic:
+                      - img
+                    - generic: DeepSeek V3
+                  - generic:
+                    - generic:
+                      - img
+                    - generic: Cursor Composer
+                  - generic:
+                    - generic:
+                      - img
+                    - generic: MiniMax M2
+                  - generic:
+                    - generic:
+                      - img
+                    - generic: Kimi K2
+            - generic:
+              - generic:
+                - generic:
+                  - text: Benchmarks
+                  - button:
+                    - img
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic: SWE
+                    - generic: SWE-bench
+                  - generic:
+                    - generic:
+                      - generic: SW2
+                    - generic: SWE-bench 2
+                  - generic:
+                    - generic:
+                      - generic: TB
+                    - generic: Terminal Bench
+                  - generic:
+                    - generic:
+                      - img
+                    - generic: Rebar
+              - generic:
+                - generic:
+                  - text: Protocols & Standards
+                  - button:
+                    - img
+                - generic:
+                  - generic:
+                    - generic:
+                      - img
+                    - generic: MCP
+                  - generic:
+                    - generic:
+                      - generic: A2A
+                    - generic: A2A
+                  - generic:
+                    - generic:
+                      - generic: ACP
+                    - generic: ACP
+                  - generic:
+                    - generic:
+                      - generic: MD
+                    - generic: AGENTS.md
+                  - generic:
+                    - generic:
+                      - img
+                    - generic: Devcontainer
+                  - generic:
+                    - generic:
+                      - generic: OCI
+                    - generic: OCI
+                  - generic:
+                    - generic:
+                      - img
+                    - generic: OpenTelemetry
+                  - generic:
+                    - generic:
+                      - generic: AT
+                    - generic: Agent Trace
+                  - generic:
+                    - generic:
+                      - generic: SK
+                    - generic: Agent Skills
+                  - generic:
+                    - generic:
+                      - generic: AA
+                    - generic: Agent Auth
+              - generic:
+                - generic:
+                  - text: ROI & Measurement
+                  - button:
+                    - img
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic: DX
+                    - generic: DX
+                  - generic:
+                    - generic:
+                      - img
+                    - generic: Cursor Analytics
+                  - generic:
+                    - generic:
+                      - img
+                    - generic: Jellyfish
+                  - generic:
+                    - generic:
+                      - img
+                    - generic: Git AI
+                  - generic:
+                    - generic:
+                      - img
+                    - generic: Entire CLI
+  - generic [ref=e1066]:
+    - paragraph [ref=e1067]:
+      - text: This website uses cookies to enhance the user experience. Read our
+      - link "cookie policy" [ref=e1068] [cursor=pointer]:
+        - /url: https://ona.com/legal/cookie-policy
+      - text: for more info.
+    - generic [ref=e1069]:
+      - button "Customize" [ref=e1070] [cursor=pointer]
+      - button "Accept" [ref=e1071] [cursor=pointer]

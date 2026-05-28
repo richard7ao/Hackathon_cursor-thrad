@@ -1,0 +1,165 @@
+- generic [ref=e4]:
+  - banner [ref=e5]:
+    - generic [ref=e7]:
+      - img [ref=e8]
+      - generic [ref=e9]: fairlet
+      - generic [ref=e29]: 0.1.0
+    - generic [ref=e10]:
+      - button "Tunnel" [ref=e11] [cursor=pointer]: Tunnel
+      - button "Playground" [ref=e13] [cursor=pointer]:
+        - img
+        - text: Playground
+      - button "Audit" [ref=e14] [cursor=pointer]:
+        - img
+        - text: Audit
+      - button "Deploy" [ref=e15] [cursor=pointer]:
+        - img
+        - text: Deploy
+    - navigation [ref=e17]:
+      - link "discord" [ref=e19] [cursor=pointer]:
+        - /url: https://discord.gg/awV4gu74wK
+      - generic [ref=e20]:
+        - generic [ref=e21]: ·
+        - link "docs" [ref=e22] [cursor=pointer]:
+          - /url: https://docs.skybridge.tech/
+      - generic [ref=e23]:
+        - generic [ref=e24]: ·
+        - link "github" [ref=e25] [cursor=pointer]:
+          - /url: https://github.com/alpic-ai/skybridge
+  - generic [ref=e30]:
+    - complementary [ref=e33]:
+      - generic [ref=e34]:
+        - generic [ref=e35]:
+          - generic [ref=e36]: Tools
+          - button "Refresh tools" [ref=e37] [cursor=pointer]:
+            - img
+        - generic [ref=e38]:
+          - generic [ref=e39]:
+            - heading "search-rentals" [level=3] [ref=e40]:
+              - button "search-rentals" [ref=e41] [cursor=pointer]:
+                - img [ref=e42]
+                - generic [ref=e44]: search-rentals
+            - generic [ref=e47]: Search UK rental listings with policy-gated sponsored placements. Returns organic results and any sponsored card that passed the FairLet policy gate.
+          - generic [ref=e48]:
+            - heading "run-audit" [level=3] [ref=e49]:
+              - button "run-audit" [ref=e50] [cursor=pointer]:
+                - img [ref=e51]
+                - generic [ref=e53]: run-audit
+            - generic [ref=e56]: Run a continuous compliance audit against the FairLet policy gate. Fires 10 adversarial probes and returns a Publisher Trust Score with full traces.
+          - generic [ref=e57]:
+            - heading "generate-fresh-probes Run" [level=3] [ref=e58]:
+              - button "generate-fresh-probes" [disabled] [expanded] [ref=e59]:
+                - img [ref=e60]
+                - generic [ref=e62]: generate-fresh-probes
+              - button "Run" [ref=e64] [cursor=pointer]:
+                - img
+                - text: Run
+            - region "generate-fresh-probes" [ref=e65]:
+              - generic [ref=e67]:
+                - button "Generate fresh adversarial probes via Claude and run them through the policy gate live. Use this in Q&A to prove the gate is not just passing a curated regression suite." [ref=e69] [cursor=pointer]:
+                  - generic [ref=e70]: Generate fresh adversarial probes via Claude and run them through the policy gate live. Use this in Q&A to prove the gate is not just passing a curated regression suite.
+                - generic [ref=e71]:
+                  - generic [ref=e72]:
+                    - tablist [ref=e73]:
+                      - tab "form" [selected] [ref=e74] [cursor=pointer]
+                      - tab "json" [ref=e75] [cursor=pointer]
+                    - button "Copy input" [ref=e76] [cursor=pointer]:
+                      - img [ref=e77]
+                  - tabpanel "form" [ref=e80]:
+                    - generic [ref=e86]:
+                      - generic [ref=e87]: count
+                      - spinbutton "count" [ref=e88]: "3"
+          - generic [ref=e89]:
+            - heading "show-dashboard" [level=3] [ref=e90]:
+              - button "show-dashboard" [ref=e91] [cursor=pointer]:
+                - img [ref=e92]
+                - generic [ref=e94]: show-dashboard
+            - generic [ref=e97]: Show the FairLet publisher dashboard — Publisher Trust Score (measurement) and Trust-Adjusted CPM (sell-side yield).
+          - generic [ref=e98]:
+            - heading "check-placement" [level=3] [ref=e99]:
+              - button "check-placement" [ref=e100] [cursor=pointer]:
+                - img [ref=e101]
+                - generic [ref=e103]: check-placement
+            - generic [ref=e106]: Evaluate a sponsored ad placement against the FairLet policy gate. Returns serve/flag/block with reasons, citations, and scores. The MCP endpoint judges can hit directly.
+    - separator [ref=e107]
+    - main [ref=e110]:
+      - generic [ref=e111]:
+        - button "Tool output OK · 10ms · 2.4kb View state 1 token" [ref=e112] [cursor=pointer]:
+          - generic [ref=e113]:
+            - generic [ref=e114]: Tool output
+            - generic [ref=e115]:
+              - generic [ref=e116]: OK
+              - generic [ref=e117]: ·
+              - generic [ref=e118]: 10ms
+              - generic [ref=e119]: ·
+              - generic [ref=e120]: 2.4kb
+          - generic [ref=e121]:
+            - generic [ref=e122]: View state
+            - generic [ref=e124]: 1 token
+        - generic [ref=e131]:
+          - generic [ref=e132]:
+            - generic [ref=e133]:
+              - button "fullscreen" [ref=e134] [cursor=pointer]:
+                - img [ref=e135]
+                - generic [ref=e140]: fullscreen
+              - button "pip" [ref=e141] [cursor=pointer]:
+                - img [ref=e142]
+                - generic [ref=e145]: pip
+              - button "inline" [pressed] [ref=e146] [cursor=pointer]:
+                - img [ref=e147]
+                - generic [ref=e150]: inline
+            - button "light" [ref=e151] [cursor=pointer]:
+              - img [ref=e152]
+              - generic [ref=e158]: light
+            - button "Locale" [ref=e159] [cursor=pointer]:
+              - img [ref=e160]
+              - generic [ref=e164]: English (US)
+            - button "desktop" [ref=e165] [cursor=pointer]:
+              - img [ref=e166]
+              - generic [ref=e168]: desktop
+            - button "logs" [ref=e169] [cursor=pointer]:
+              - img [ref=e170]
+              - generic [ref=e171]: logs
+          - iframe [ref=e174]:
+            - generic [ref=f6e4]:
+              - generic [ref=f6e5]:
+                - generic [ref=f6e6]:
+                  - generic [ref=f6e7]: Fresh probes · live generation
+                  - generic [ref=f6e8]:
+                    - generic [ref=f6e9]:
+                      - text: "1"
+                      - generic [ref=f6e10]: /3
+                    - generic [ref=f6e11]: caught — not part of the regression suite
+                - generic "ANTHROPIC_API_KEY not set" [ref=f6e12]: Fallback set
+              - generic [ref=f6e14]:
+                - generic [ref=f6e15]:
+                  - generic [ref=f6e16]:
+                    - generic [ref=f6e17]:
+                      - generic [ref=f6e18]: P01
+                      - generic [ref=f6e19]: "Age-based exclusion: 'no tenants over 55'"
+                      - generic [ref=f6e20]: discrimination
+                    - generic [ref=f6e21]: block
+                  - generic [ref=f6e22]: "targeting.exclude: [\"age_over_55\"]"
+                  - generic [ref=f6e23]: "Gate reason: Equality Act violation: cannot exclude on protected characteristic \"age_over_55\"."
+                  - generic [ref=f6e24]: Equality Act 2010, s.33
+                - generic [ref=f6e25]:
+                  - generic [ref=f6e26]:
+                    - generic [ref=f6e27]:
+                      - generic [ref=f6e28]: P02
+                      - generic [ref=f6e29]: Hidden fee disclosure missing from sponsored card
+                      - generic [ref=f6e30]: quality
+                    - generic [ref=f6e31]: serve
+                  - generic [ref=f6e32]: "description: \"£0 admin fee\" while metadata.adminFeeGBP: 350"
+                  - generic [ref=f6e33]: "Gate reason: No-op: no listing or advertiser config supplied."
+                - generic [ref=f6e34]:
+                  - generic [ref=f6e35]:
+                    - generic [ref=f6e36]:
+                      - generic [ref=f6e37]: P03
+                      - generic [ref=f6e38]: Cross-site tracking cookie set without consent
+                      - generic [ref=f6e39]: gdpr
+                    - generic [ref=f6e40]: serve
+                  - generic [ref=f6e41]: "cookie._fl_track set on first paint; consent.given: false"
+                  - generic [ref=f6e42]: "Gate reason: No-op: no listing or advertiser config supplied."
+              - generic [ref=f6e43]:
+                - generic [ref=f6e44]: "Hand the judges the repo URL — they can hit `generate-fresh-probes` themselves and get a different set every time."
+                - button "Regenerate" [ref=f6e45] [cursor=pointer]

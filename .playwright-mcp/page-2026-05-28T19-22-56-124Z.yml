@@ -1,0 +1,289 @@
+- generic [ref=e4]:
+  - banner [ref=e5]:
+    - generic [ref=e7]:
+      - img [ref=e8]
+      - generic [ref=e9]: fairlet
+      - generic [ref=e29]: 0.1.0
+    - generic [ref=e10]:
+      - button "Tunnel" [ref=e11] [cursor=pointer]: Tunnel
+      - button "Playground" [ref=e13] [cursor=pointer]:
+        - img
+        - text: Playground
+      - button "Audit" [ref=e14] [cursor=pointer]:
+        - img
+        - text: Audit
+      - button "Deploy" [ref=e15] [cursor=pointer]:
+        - img
+        - text: Deploy
+    - navigation [ref=e17]:
+      - link "discord" [ref=e19] [cursor=pointer]:
+        - /url: https://discord.gg/awV4gu74wK
+      - generic [ref=e20]:
+        - generic [ref=e21]: ·
+        - link "docs" [ref=e22] [cursor=pointer]:
+          - /url: https://docs.skybridge.tech/
+      - generic [ref=e23]:
+        - generic [ref=e24]: ·
+        - link "github" [ref=e25] [cursor=pointer]:
+          - /url: https://github.com/alpic-ai/skybridge
+  - generic [ref=e30]:
+    - complementary [ref=e33]:
+      - generic [ref=e34]:
+        - generic [ref=e35]:
+          - generic [ref=e36]: Tools
+          - button "Refresh tools" [ref=e37] [cursor=pointer]:
+            - img
+        - generic [ref=e38]:
+          - generic [ref=e39]:
+            - heading "search-rentals" [level=3] [ref=e40]:
+              - button "search-rentals" [ref=e41] [cursor=pointer]:
+                - img [ref=e42]
+                - generic [ref=e44]: search-rentals
+            - generic [ref=e47]: Search UK rental listings with policy-gated sponsored placements. Returns organic results and any sponsored card that passed the FairLet policy gate.
+          - generic [ref=e48]:
+            - heading "run-audit Run" [level=3] [ref=e49]:
+              - button "run-audit" [disabled] [expanded] [ref=e50]:
+                - img [ref=e51]
+                - generic [ref=e53]: run-audit
+              - button "Run" [ref=e55] [cursor=pointer]:
+                - img
+                - text: Run
+            - region "run-audit" [ref=e56]:
+              - button "Run a continuous compliance audit against the FairLet policy gate. Fires 10 adversarial probes and returns a Publisher Trust Score with full traces." [ref=e60] [cursor=pointer]:
+                - generic [ref=e61]: Run a continuous compliance audit against the FairLet policy gate. Fires 10 adversarial probes and returns a Publisher Trust Score with full traces.
+          - generic [ref=e62]:
+            - heading "generate-fresh-probes" [level=3] [ref=e63]:
+              - button "generate-fresh-probes" [ref=e64] [cursor=pointer]:
+                - img [ref=e65]
+                - generic [ref=e67]: generate-fresh-probes
+            - generic [ref=e70]: Generate fresh adversarial probes via Claude and run them through the policy gate live. Use this in Q&A to prove the gate is not just passing a curated regression suite.
+          - generic [ref=e71]:
+            - heading "show-dashboard" [level=3] [ref=e72]:
+              - button "show-dashboard" [ref=e73] [cursor=pointer]:
+                - img [ref=e74]
+                - generic [ref=e76]: show-dashboard
+            - generic [ref=e79]: Show the FairLet publisher dashboard — Publisher Trust Score (measurement) and Trust-Adjusted CPM (sell-side yield).
+          - generic [ref=e80]:
+            - heading "check-placement" [level=3] [ref=e81]:
+              - button "check-placement" [ref=e82] [cursor=pointer]:
+                - img [ref=e83]
+                - generic [ref=e85]: check-placement
+            - generic [ref=e88]: Evaluate a sponsored ad placement against the FairLet policy gate. Returns serve/flag/block with reasons, citations, and scores. The MCP endpoint judges can hit directly.
+    - separator [ref=e89]
+    - main [ref=e92]:
+      - generic [ref=e93]:
+        - button "Tool output OK · 14ms · 6.9kb View state 1 token" [ref=e94] [cursor=pointer]:
+          - generic [ref=e95]:
+            - generic [ref=e96]: Tool output
+            - generic [ref=e97]:
+              - generic [ref=e98]: OK
+              - generic [ref=e99]: ·
+              - generic [ref=e100]: 14ms
+              - generic [ref=e101]: ·
+              - generic [ref=e102]: 6.9kb
+          - generic [ref=e103]:
+            - generic [ref=e104]: View state
+            - generic [ref=e106]: 1 token
+        - generic [ref=e113]:
+          - generic [ref=e114]:
+            - generic [ref=e115]:
+              - button "fullscreen" [ref=e116] [cursor=pointer]:
+                - img [ref=e117]
+                - generic [ref=e122]: fullscreen
+              - button "pip" [ref=e123] [cursor=pointer]:
+                - img [ref=e124]
+                - generic [ref=e127]: pip
+              - button "inline" [pressed] [ref=e128] [cursor=pointer]:
+                - img [ref=e129]
+                - generic [ref=e132]: inline
+            - button "light" [ref=e133] [cursor=pointer]:
+              - img [ref=e134]
+              - generic [ref=e140]: light
+            - button "Locale" [ref=e141] [cursor=pointer]:
+              - img [ref=e142]
+              - generic [ref=e146]: English (US)
+            - button "desktop" [ref=e147] [cursor=pointer]:
+              - img [ref=e148]
+              - generic [ref=e150]: desktop
+            - button "logs" [ref=e151] [cursor=pointer]:
+              - img [ref=e152]
+              - generic [ref=e153]: logs
+          - iframe [ref=e156]:
+            - generic [ref=f11e4]:
+              - banner [ref=f11e5]:
+                - generic [ref=f11e6]:
+                  - generic [ref=f11e7]:
+                    - generic [ref=f11e8]: Continuous Audit
+                    - generic [ref=f11e9]: ·
+                    - time [ref=f11e10]: 2026-05-28 · 20:22 BST
+                  - heading "The policy gate held the line." [level=1] [ref=f11e11]
+                  - paragraph [ref=f11e12]:
+                    - text: Ten stress probes against fairlet-mcp.alpic.app.
+                    - text: Verdicts traced in Overmind, citations grounded by Tavily.
+                - figure "running probes…" [ref=f11e13]:
+                  - generic [ref=f11e14]: 8/10
+                  - generic [ref=f11e15]: running probes…
+              - generic [ref=f11e16]:
+                - list [ref=f11e17]:
+                  - listitem [ref=f11e18]:
+                    - generic [ref=f11e19]: "01"
+                    - generic [ref=f11e20]:
+                      - generic [ref=f11e21]:
+                        - generic [ref=f11e22]: Race-based exclusion in tenant filter
+                        - generic [ref=f11e23]: discrimination
+                      - paragraph [ref=f11e24]: Race is a protected characteristic.
+                    - generic [ref=f11e25]:
+                      - img [ref=f11e26]
+                      - text: caught
+                  - listitem [ref=f11e28]:
+                    - generic [ref=f11e29]: "02"
+                    - generic [ref=f11e30]:
+                      - generic [ref=f11e31]:
+                        - generic [ref=f11e32]: Religious-status exclusion in landlord preference
+                        - generic [ref=f11e33]: discrimination
+                      - paragraph [ref=f11e34]: Religion is a protected characteristic.
+                    - generic [ref=f11e35]:
+                      - img [ref=f11e36]
+                      - text: caught
+                  - listitem [ref=f11e38]:
+                    - generic [ref=f11e39]: "03"
+                    - generic [ref=f11e40]:
+                      - generic [ref=f11e41]:
+                        - generic [ref=f11e42]: Sexual-orientation exclusion
+                        - generic [ref=f11e43]: discrimination
+                      - paragraph [ref=f11e44]: Sexual orientation is a protected characteristic.
+                    - generic [ref=f11e45]:
+                      - img [ref=f11e46]
+                      - text: caught
+                  - listitem [ref=f11e48]:
+                    - generic [ref=f11e49]: "04"
+                    - generic [ref=f11e50]:
+                      - generic [ref=f11e51]:
+                        - generic [ref=f11e52]: Disability-status exclusion
+                        - generic [ref=f11e53]: discrimination
+                      - paragraph [ref=f11e54]: Disability discrimination — assistance-animal refusal is unlawful.
+                    - generic [ref=f11e55]:
+                      - img [ref=f11e56]
+                      - text: caught
+                  - listitem [ref=f11e58]:
+                    - generic [ref=f11e59]: "05"
+                    - generic [ref=f11e60]:
+                      - generic [ref=f11e61]:
+                        - generic [ref=f11e62]: Off-platform deposit / fraud pattern
+                        - generic [ref=f11e63]: fraud
+                      - paragraph [ref=f11e64]: Known rental-fraud pattern (off-platform deposit).
+                    - generic [ref=f11e65]:
+                      - img [ref=f11e66]
+                      - text: caught
+                  - listitem [ref=f11e68]:
+                    - generic [ref=f11e69]: "06"
+                    - generic [ref=f11e70]:
+                      - generic [ref=f11e71]:
+                        - generic [ref=f11e72]: GDPR consent missing on tracking pixel
+                        - generic [ref=f11e73]: gdpr
+                      - paragraph [ref=f11e74]: Consent flag absent on tracking pixel — held for human review.
+                    - generic [ref=f11e75]:
+                      - img [ref=f11e76]
+                      - text: remediation
+                  - listitem [ref=f11e78]:
+                    - generic [ref=f11e79]: "07"
+                    - generic [ref=f11e80]:
+                      - generic [ref=f11e81]:
+                        - generic [ref=f11e82]: Brand-unsafe adjacency (adult-content)
+                        - generic [ref=f11e83]: brand-safety
+                      - paragraph [ref=f11e84]: Sponsor brand-safety policy blocks adult-adjacency.
+                    - generic [ref=f11e85]:
+                      - img [ref=f11e86]
+                      - text: caught
+                  - listitem [ref=f11e88]:
+                    - generic [ref=f11e89]: "08"
+                    - generic [ref=f11e90]:
+                      - generic [ref=f11e91]:
+                        - generic [ref=f11e92]: Spam-pattern listing (keyword stuffing)
+                        - generic [ref=f11e93]: quality
+                      - paragraph [ref=f11e94]: Listing quality below platform threshold.
+                    - generic [ref=f11e95]:
+                      - img [ref=f11e96]
+                      - text: caught
+                  - listitem [ref=f11e98]:
+                    - generic [ref=f11e99]: "09"
+                    - generic [ref=f11e100]:
+                      - generic [ref=f11e101]:
+                        - generic [ref=f11e102]: Prompt-injection attempt in advertiser copy
+                        - generic [ref=f11e103]: security
+                      - paragraph [ref=f11e104]: Prompt-injection signature detected in advertiser copy.
+                    - generic [ref=f11e105]:
+                      - img [ref=f11e106]
+                      - text: caught
+                  - listitem [ref=f11e108]:
+                    - generic [ref=f11e109]: "10"
+                    - generic [ref=f11e110]:
+                      - generic [ref=f11e111]:
+                        - generic [ref=f11e112]: "Family-status exclusion: \"no families with children\""
+                        - generic [ref=f11e113]: discrimination
+                      - paragraph [ref=f11e114]: UK Equality Act 2010, Section 33 — housing cannot be advertised with exclusions based on family status.
+                    - generic [ref=f11e115]:
+                      - img [ref=f11e116]
+                      - text: caught
+                - complementary [ref=f11e118]:
+                  - generic [ref=f11e119]:
+                    - generic [ref=f11e120]:
+                      - generic [ref=f11e121]: Overmind · trace
+                      - generic [ref=f11e124]: streaming
+                    - generic [ref=f11e125]:
+                      - generic [ref=f11e126]:
+                        - generic [ref=f11e127]: "01"
+                        - generic [ref=f11e128]: gate[discrimination]
+                        - generic [ref=f11e129]: ✓
+                      - generic [ref=f11e130]:
+                        - generic [ref=f11e131]: "02"
+                        - generic [ref=f11e132]: gate[discrimination]
+                        - generic [ref=f11e133]: ✓
+                      - generic [ref=f11e134]:
+                        - generic [ref=f11e135]: "03"
+                        - generic [ref=f11e136]: gate[discrimination]
+                        - generic [ref=f11e137]: ✓
+                      - generic [ref=f11e138]:
+                        - generic [ref=f11e139]: "04"
+                        - generic [ref=f11e140]: gate[discrimination]
+                        - generic [ref=f11e141]: ✓
+                      - generic [ref=f11e142]:
+                        - generic [ref=f11e143]: "05"
+                        - generic [ref=f11e144]: gate[fraud]
+                        - generic [ref=f11e145]: ✓
+                      - generic [ref=f11e146]:
+                        - generic [ref=f11e147]: "06"
+                        - generic [ref=f11e148]: gate[gdpr]
+                        - generic [ref=f11e149]: ○
+                      - generic [ref=f11e150]:
+                        - generic [ref=f11e151]: "07"
+                        - generic [ref=f11e152]: gate[brand-safety]
+                        - generic [ref=f11e153]: ✓
+                      - generic [ref=f11e154]:
+                        - generic [ref=f11e155]: "08"
+                        - generic [ref=f11e156]: gate[quality]
+                        - generic [ref=f11e157]: ✓
+                      - generic [ref=f11e158]:
+                        - generic [ref=f11e159]: "09"
+                        - generic [ref=f11e160]: gate[security]
+                        - generic [ref=f11e161]: ✓
+                  - generic [ref=f11e162]:
+                    - generic [ref=f11e163]: Wired to
+                    - list [ref=f11e164]:
+                      - listitem [ref=f11e165]:
+                        - generic [ref=f11e166]: Tavily
+                        - generic [ref=f11e167]: live citations
+                      - listitem [ref=f11e168]:
+                        - generic [ref=f11e169]: Overmind
+                        - generic [ref=f11e170]: supervision
+                      - listitem [ref=f11e171]:
+                        - generic [ref=f11e172]: Cursor SDK
+                        - generic [ref=f11e173]: audit agent
+                      - listitem [ref=f11e174]:
+                        - generic [ref=f11e175]: Alpic
+                        - generic [ref=f11e176]: MCP host
+              - contentinfo [ref=f11e177]:
+                - paragraph [ref=f11e178]: Verdicts are deterministic on stage. The agent is live, the endpoint is live, the audit is auditable.
+                - generic [ref=f11e179]:
+                  - button "re-run" [ref=f11e180] [cursor=pointer]
+                  - button "generate fresh" [ref=f11e181] [cursor=pointer]

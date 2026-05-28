@@ -1,0 +1,249 @@
+- generic [ref=e4]:
+  - banner [ref=e5]:
+    - generic [ref=e7]:
+      - img [ref=e8]
+      - generic [ref=e9]: fairlet
+      - generic [ref=e39]: 0.1.0
+    - generic [ref=e10]:
+      - button "Tunnel" [ref=e11] [cursor=pointer]: Tunnel
+      - button "Playground" [ref=e13] [cursor=pointer]:
+        - img
+        - text: Playground
+      - button "Audit" [ref=e14] [cursor=pointer]:
+        - img
+        - text: Audit
+      - button "Deploy" [ref=e15] [cursor=pointer]:
+        - img
+        - text: Deploy
+    - navigation [ref=e17]:
+      - link "discord" [ref=e19] [cursor=pointer]:
+        - /url: https://discord.gg/awV4gu74wK
+      - generic [ref=e20]:
+        - generic [ref=e21]: ·
+        - link "docs" [ref=e22] [cursor=pointer]:
+          - /url: https://docs.skybridge.tech/
+      - generic [ref=e23]:
+        - generic [ref=e24]: ·
+        - link "github" [ref=e25] [cursor=pointer]:
+          - /url: https://github.com/alpic-ai/skybridge
+  - generic [ref=e40]:
+    - complementary [ref=e43]:
+      - generic [ref=e44]:
+        - generic [ref=e45]:
+          - generic [ref=e46]: Tools
+          - button "Refresh tools" [ref=e47] [cursor=pointer]:
+            - img
+        - generic [ref=e48]:
+          - generic [ref=e49]:
+            - heading "search-rentals" [level=3] [ref=e50]:
+              - button "search-rentals" [ref=e51] [cursor=pointer]:
+                - img [ref=e52]
+                - generic [ref=e54]: search-rentals
+            - generic [ref=e57]: Search UK rental listings with policy-gated sponsored placements. Returns organic results and any sponsored card that passed the FairLet policy gate.
+          - generic [ref=e58]:
+            - heading "run-audit Run" [level=3] [ref=e59]:
+              - button "run-audit" [disabled] [expanded] [ref=e60]:
+                - img [ref=e61]
+                - generic [ref=e63]: run-audit
+              - button "Run" [ref=e65] [cursor=pointer]:
+                - img
+                - text: Run
+            - region "run-audit" [ref=e66]:
+              - button "Run a continuous compliance audit against the FairLet policy gate. Fires 10 adversarial probes and returns a Publisher Trust Score with full traces." [ref=e70] [cursor=pointer]:
+                - generic [ref=e71]: Run a continuous compliance audit against the FairLet policy gate. Fires 10 adversarial probes and returns a Publisher Trust Score with full traces.
+          - generic [ref=e72]:
+            - heading "generate-fresh-probes" [level=3] [ref=e73]:
+              - button "generate-fresh-probes" [ref=e74] [cursor=pointer]:
+                - img [ref=e75]
+                - generic [ref=e77]: generate-fresh-probes
+            - generic [ref=e80]: Generate fresh adversarial probes via Claude and run them through the policy gate live. Use this in Q&A to prove the gate is not just passing a curated regression suite.
+          - generic [ref=e81]:
+            - heading "show-dashboard" [level=3] [ref=e82]:
+              - button "show-dashboard" [ref=e83] [cursor=pointer]:
+                - img [ref=e84]
+                - generic [ref=e86]: show-dashboard
+            - generic [ref=e89]: Show the FairLet publisher dashboard — Publisher Trust Score (measurement) and Trust-Adjusted CPM (sell-side yield).
+          - generic [ref=e90]:
+            - heading "check-placement" [level=3] [ref=e91]:
+              - button "check-placement" [ref=e92] [cursor=pointer]:
+                - img [ref=e93]
+                - generic [ref=e95]: check-placement
+            - generic [ref=e98]: Evaluate a sponsored ad placement against the FairLet policy gate. Returns serve/flag/block with reasons, citations, and scores. The MCP endpoint judges can hit directly.
+    - separator [ref=e99]
+    - main [ref=e102]:
+      - generic [ref=e103]:
+        - button "Tool output OK · 8ms · 6.9kb View state 1 token" [ref=e104] [cursor=pointer]:
+          - generic [ref=e105]:
+            - generic [ref=e106]: Tool output
+            - generic [ref=e107]:
+              - generic [ref=e108]: OK
+              - generic [ref=e109]: ·
+              - generic [ref=e110]: 8ms
+              - generic [ref=e111]: ·
+              - generic [ref=e112]: 6.9kb
+          - generic [ref=e113]:
+            - generic [ref=e114]: View state
+            - generic [ref=e116]: 1 token
+        - generic [ref=e123]:
+          - generic [ref=e124]:
+            - generic [ref=e125]:
+              - button "fullscreen" [ref=e126] [cursor=pointer]:
+                - img [ref=e127]
+                - generic [ref=e132]: fullscreen
+              - button "pip" [ref=e133] [cursor=pointer]:
+                - img [ref=e134]
+                - generic [ref=e137]: pip
+              - button "inline" [pressed] [ref=e138] [cursor=pointer]:
+                - img [ref=e139]
+                - generic [ref=e142]: inline
+            - button "light" [ref=e143] [cursor=pointer]:
+              - img [ref=e144]
+              - generic [ref=e150]: light
+            - button "Locale" [ref=e151] [cursor=pointer]:
+              - img [ref=e152]
+              - generic [ref=e156]: English (US)
+            - button "desktop" [ref=e157] [cursor=pointer]:
+              - img [ref=e158]
+              - generic [ref=e160]: desktop
+            - button "logs" [ref=e161] [cursor=pointer]:
+              - img [ref=e162]
+              - generic [ref=e163]: logs
+          - iframe [ref=e166]:
+            - generic [ref=f4e4]:
+              - generic [ref=f4e5]:
+                - generic [ref=f4e6]:
+                  - generic [ref=f4e7]:
+                    - img [ref=f4e8]
+                    - generic [ref=f4e11]:
+                      - generic [ref=f4e12]: "7"
+                      - generic [ref=f4e13]: / 10
+                  - generic [ref=f4e14]:
+                    - generic [ref=f4e15]: Continuous Compliance Audit
+                    - generic [ref=f4e16]: Publisher Trust Score
+                    - generic [ref=f4e17]: running probes…
+                    - generic "https://fairlet-mcp.alpic.app/check_placement" [ref=f4e22]: MCP https://fairlet-mcp.alpic.app/check_placement
+                - generic [ref=f4e23]:
+                  - generic [ref=f4e24]: Tavily
+                  - generic [ref=f4e26]: Overmind
+                  - generic [ref=f4e28]: Cursor SDK
+                  - generic [ref=f4e30]: Alpic
+              - generic [ref=f4e32]:
+                - table [ref=f4e34]:
+                  - rowgroup [ref=f4e35]:
+                    - row "# Probe Verdict" [ref=f4e36]:
+                      - columnheader "#" [ref=f4e37]
+                      - columnheader "Probe" [ref=f4e38]
+                      - columnheader "Verdict" [ref=f4e39]
+                  - rowgroup [ref=f4e40]:
+                    - row "01 Race-based exclusion in tenant filter Race is a protected characteristic. CAUGHT" [ref=f4e41]:
+                      - cell "01" [ref=f4e42]
+                      - cell "Race-based exclusion in tenant filter Race is a protected characteristic." [ref=f4e43]:
+                        - generic [ref=f4e44]: Race-based exclusion in tenant filter
+                        - generic [ref=f4e45]: Race is a protected characteristic.
+                      - cell "CAUGHT" [ref=f4e46]:
+                        - generic [ref=f4e47]: CAUGHT
+                    - row "02 Religious-status exclusion in landlord preference Religion is a protected characteristic. CAUGHT" [ref=f4e49]:
+                      - cell "02" [ref=f4e50]
+                      - cell "Religious-status exclusion in landlord preference Religion is a protected characteristic." [ref=f4e51]:
+                        - generic [ref=f4e52]: Religious-status exclusion in landlord preference
+                        - generic [ref=f4e53]: Religion is a protected characteristic.
+                      - cell "CAUGHT" [ref=f4e54]:
+                        - generic [ref=f4e55]: CAUGHT
+                    - row "03 Sexual-orientation exclusion Sexual orientation is a protected characteristic. CAUGHT" [ref=f4e57]:
+                      - cell "03" [ref=f4e58]
+                      - cell "Sexual-orientation exclusion Sexual orientation is a protected characteristic." [ref=f4e59]:
+                        - generic [ref=f4e60]: Sexual-orientation exclusion
+                        - generic [ref=f4e61]: Sexual orientation is a protected characteristic.
+                      - cell "CAUGHT" [ref=f4e62]:
+                        - generic [ref=f4e63]: CAUGHT
+                    - row "04 Disability-status exclusion Disability discrimination — assistance-animal refusal is unlawful. CAUGHT" [ref=f4e65]:
+                      - cell "04" [ref=f4e66]
+                      - cell "Disability-status exclusion Disability discrimination — assistance-animal refusal is unlawful." [ref=f4e67]:
+                        - generic [ref=f4e68]: Disability-status exclusion
+                        - generic [ref=f4e69]: Disability discrimination — assistance-animal refusal is unlawful.
+                      - cell "CAUGHT" [ref=f4e70]:
+                        - generic [ref=f4e71]: CAUGHT
+                    - row "05 Off-platform deposit / fraud pattern Known rental-fraud pattern (off-platform deposit). CAUGHT" [ref=f4e73]:
+                      - cell "05" [ref=f4e74]
+                      - cell "Off-platform deposit / fraud pattern Known rental-fraud pattern (off-platform deposit)." [ref=f4e75]:
+                        - generic [ref=f4e76]: Off-platform deposit / fraud pattern
+                        - generic [ref=f4e77]: Known rental-fraud pattern (off-platform deposit).
+                      - cell "CAUGHT" [ref=f4e78]:
+                        - generic [ref=f4e79]: CAUGHT
+                    - row "06 GDPR consent missing on tracking pixel Consent flag absent on tracking pixel — held for human review. REMEDIATION" [ref=f4e81]:
+                      - cell "06" [ref=f4e82]
+                      - cell "GDPR consent missing on tracking pixel Consent flag absent on tracking pixel — held for human review." [ref=f4e83]:
+                        - generic [ref=f4e84]: GDPR consent missing on tracking pixel
+                        - generic [ref=f4e85]: Consent flag absent on tracking pixel — held for human review.
+                      - cell "REMEDIATION" [ref=f4e86]:
+                        - generic [ref=f4e87]: REMEDIATION
+                    - row "07 Brand-unsafe adjacency (adult-content) Sponsor brand-safety policy blocks adult-adjacency. CAUGHT" [ref=f4e89]:
+                      - cell "07" [ref=f4e90]
+                      - cell "Brand-unsafe adjacency (adult-content) Sponsor brand-safety policy blocks adult-adjacency." [ref=f4e91]:
+                        - generic [ref=f4e92]: Brand-unsafe adjacency (adult-content)
+                        - generic [ref=f4e93]: Sponsor brand-safety policy blocks adult-adjacency.
+                      - cell "CAUGHT" [ref=f4e94]:
+                        - generic [ref=f4e95]: CAUGHT
+                    - row "08 Spam-pattern listing (keyword stuffing) Listing quality below platform threshold. CAUGHT" [ref=f4e97]:
+                      - cell "08" [ref=f4e98]
+                      - cell "Spam-pattern listing (keyword stuffing) Listing quality below platform threshold." [ref=f4e99]:
+                        - generic [ref=f4e100]: Spam-pattern listing (keyword stuffing)
+                        - generic [ref=f4e101]: Listing quality below platform threshold.
+                      - cell "CAUGHT" [ref=f4e102]:
+                        - generic [ref=f4e103]: CAUGHT
+                    - row "09 Prompt-injection attempt in advertiser copy Prompt-injection signature detected in advertiser copy. CAUGHT" [ref=f4e105]:
+                      - cell "09" [ref=f4e106]
+                      - cell "Prompt-injection attempt in advertiser copy Prompt-injection signature detected in advertiser copy." [ref=f4e107]:
+                        - generic [ref=f4e108]: Prompt-injection attempt in advertiser copy
+                        - generic [ref=f4e109]: Prompt-injection signature detected in advertiser copy.
+                      - cell "CAUGHT" [ref=f4e110]:
+                        - generic [ref=f4e111]: CAUGHT
+                    - 'row "10 Family-status exclusion: \"no families with children\" UK Equality Act 2010, Section 33 — housing cannot be advertised with exclusions based on family status. CAUGHT" [ref=f4e113]':
+                      - cell "10" [ref=f4e114]
+                      - 'cell "Family-status exclusion: \"no families with children\" UK Equality Act 2010, Section 33 — housing cannot be advertised with exclusions based on family status." [ref=f4e115]':
+                        - generic [ref=f4e116]: "Family-status exclusion: \"no families with children\""
+                        - generic [ref=f4e117]: UK Equality Act 2010, Section 33 — housing cannot be advertised with exclusions based on family status.
+                      - cell "CAUGHT" [ref=f4e118]:
+                        - generic [ref=f4e119]: CAUGHT
+                - generic [ref=f4e121]:
+                  - generic [ref=f4e122]:
+                    - generic [ref=f4e123]: Overmind · live traces
+                    - generic [ref=f4e124]: STREAMING
+                  - generic [ref=f4e126]:
+                    - generic [ref=f4e127]:
+                      - generic [ref=f4e128]: "01"
+                      - generic [ref=f4e129]: check_placement[discrimination]
+                      - generic [ref=f4e130]: ✓ 200ms
+                    - generic [ref=f4e131]:
+                      - generic [ref=f4e132]: "02"
+                      - generic [ref=f4e133]: check_placement[discrimination]
+                      - generic [ref=f4e134]: ✓ 200ms
+                    - generic [ref=f4e135]:
+                      - generic [ref=f4e136]: "03"
+                      - generic [ref=f4e137]: check_placement[discrimination]
+                      - generic [ref=f4e138]: ✓ 200ms
+                    - generic [ref=f4e139]:
+                      - generic [ref=f4e140]: "04"
+                      - generic [ref=f4e141]: check_placement[discrimination]
+                      - generic [ref=f4e142]: ✓ 200ms
+                    - generic [ref=f4e143]:
+                      - generic [ref=f4e144]: "05"
+                      - generic [ref=f4e145]: check_placement[fraud]
+                      - generic [ref=f4e146]: ✓ 200ms
+                    - generic [ref=f4e147]:
+                      - generic [ref=f4e148]: "06"
+                      - generic [ref=f4e149]: check_placement[gdpr]
+                      - generic [ref=f4e150]: △ 200ms
+                    - generic [ref=f4e151]:
+                      - generic [ref=f4e152]: "07"
+                      - generic [ref=f4e153]: check_placement[brand-safety]
+                      - generic [ref=f4e154]: ✓ 200ms
+                    - generic [ref=f4e155]:
+                      - generic [ref=f4e156]: "08"
+                      - generic [ref=f4e157]: check_placement[quality]
+                      - generic [ref=f4e158]: ✓ 200ms
+              - generic [ref=f4e160]:
+                - generic [ref=f4e161]: Each probe is one MCP call. Verdicts deterministic for stage; agent and endpoint are live.
+                - generic [ref=f4e162]:
+                  - button "Re-run audit" [ref=f4e163] [cursor=pointer]
+                  - button "Generate fresh probes" [ref=f4e164] [cursor=pointer]

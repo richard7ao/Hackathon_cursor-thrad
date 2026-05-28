@@ -1,0 +1,502 @@
+- generic [ref=e2]:
+  - generic [ref=e5]:
+    - generic [ref=e6]:
+      - generic [ref=e7]:
+        - heading "The Self-Driving Codebase" [level=1] [ref=e8]
+        - generic [ref=e9]: Background agents and the next era of software delivery
+        - button "Enter ↓" [ref=e11] [cursor=pointer]
+      - generic [ref=e13]:
+        - generic [ref=e14]:
+          - text: Background Agents
+          - text: Virtual Summit
+        - generic [ref=e15]:
+          - generic "Alistair Gray · Stripe" [ref=e16]:
+            - img [ref=e18]
+          - generic "Joey Wang · Harvey" [ref=e21]:
+            - img "Harvey" [ref=e23]
+          - generic "Nikhil Ramakrishnan · Uber" [ref=e24]:
+            - img "Uber" [ref=e26]
+          - generic "Suhail Patel · Monzo" [ref=e27]:
+            - img "Monzo" [ref=e29]
+          - generic "Shardul Vaidya · AWS" [ref=e30]:
+            - img "AWS" [ref=e32]
+          - generic "Rajesh Bhatia · Cloudflare" [ref=e33]:
+            - img "Cloudflare" [ref=e35]
+        - generic [ref=e39]: Summit wrapped·6–7 May 2026
+        - link "View recordings →" [ref=e40] [cursor=pointer]:
+          - /url: /summit/
+    - generic [ref=e41]:
+      - generic [ref=e42]: Scroll down
+      - img [ref=e43]
+  - generic [ref=e47]:
+    - generic:
+      - generic:
+        - generic:
+          - link "Background Agents Virtual Summit — RSVP now":
+            - /url: /summit/
+            - generic:
+              - img
+            - generic: Summit wrapped. View recordings
+            - generic:
+              - img
+          - button "Close announcement":
+            - img
+    - generic [ref=e48]:
+      - generic [ref=e49]:
+        - generic [ref=e50]: The self-driving codebase
+        - heading "Background agents work across the entire SDLC." [level=1] [ref=e51]
+        - paragraph [ref=e52]:
+          - text: Software delivery was designed around constraints of humans at keyboards. Now, agents run autonomously across thousands of repos in the background. This trend is already in motion at companies like
+          - link "Stripe" [ref=e53] [cursor=pointer]:
+            - /url: https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents
+          - text: ","
+          - link "Ramp" [ref=e54] [cursor=pointer]:
+            - /url: https://builders.ramp.com/post/why-we-built-our-background-agent
+          - text: ","
+          - link "Uber" [ref=e55] [cursor=pointer]:
+            - /url: https://www.youtube.com/watch?v=i1tZN41VKcE
+          - text: ","
+          - link "Harvey" [ref=e56] [cursor=pointer]:
+            - /url: https://www.harvey.ai/blog/building-spectre-internal-collaborative-cloud-agent-platform
+          - text: ", and"
+          - link "Spotify" [ref=e57] [cursor=pointer]:
+            - /url: https://engineering.atspotify.com/2025/11/spotifys-background-coding-agent-part-1
+          - text: ". Our old processes can't absorb these changes anymore. Now, every engineering leader is asking the same question:"
+          - strong [ref=e58]: how do we get from today's delivery process to a self-driving codebase?
+      - img [ref=e61]:
+        - generic [ref=e64]: PLAN
+        - generic [ref=e65]: CODE
+        - generic [ref=e66]: REVIEW
+        - generic [ref=e67]: TEST
+        - generic [ref=e68]: DEPLOY
+    - generic [ref=e90]:
+      - generic [ref=e91]:
+        - heading "Our systems are bottlenecked by localhost" [level=2] [ref=e92]
+        - generic [ref=e93]:
+          - img [ref=e95]
+          - img [ref=e98]
+          - img [ref=e101]
+      - paragraph [ref=e103]: Autocomplete became coding agents. Coding agents became three coding agents running in parallel on your laptop. Engineers reached for worktrees, more and more terminals, spare Mac Minis. Anything to run more agents.
+      - paragraph [ref=e104]: But localhost wasn't built for this. Agents fight over machine state, secrets become exposed, and everything stops when the machine sleeps.
+      - paragraph [ref=e105]:
+        - text: That works for indie-hackers, but is
+        - strong [ref=e106]: untenable for professional engineering.
+        - text: We must de-couple engineers from workstations. Agents need to run in the background, securely, and at scale.
+      - 'link "Read: The Last Year of Localhost by Johannes Landgraf, co-founder of Ona" [ref=e110] [cursor=pointer]':
+        - /url: https://ona.com/stories/the-last-year-of-localhost?utm_source=background-agents&utm_medium=microsite&utm_campaign=background-agent-manual
+        - img [ref=e111]
+        - text: "Read: The Last Year of Localhost"
+        - generic [ref=e115]: by Johannes Landgraf, co-founder of Ona
+    - generic [ref=e116]:
+      - generic [ref=e117]:
+        - generic [ref=e118]: The false summit
+        - heading "Individual speed ≠ organizational velocity." [level=2] [ref=e119]
+        - paragraph [ref=e120]:
+          - text: You rolled out coding agents. Engineers are faster. PRs flood in.
+          - text: Yet, cycle time doesn't budge. DORA metrics are flat. The backlog grows.
+          - text: Because gains are compounding with the individual, not the organization. The longer you invest in coding agents without addressing the system around it, the deeper you entrench.
+          - strong [ref=e121]: This is the false summit.
+      - img [ref=e123]:
+        - generic [ref=e130]:
+          - generic [ref=e131]: AGENTS ON DEVELOPER MACHINES
+          - generic [ref=e132]: The false summit
+        - generic [ref=e135]:
+          - generic [ref=e138]: Step 01
+          - generic [ref=e139]: Establish background agent primitives
+        - generic [ref=e142]:
+          - generic [ref=e145]: Step 02
+          - generic [ref=e146]: Find your systems bottlenecks
+        - generic [ref=e149]:
+          - generic [ref=e152]: Step 03
+          - generic [ref=e153]: Scale your software factory
+    - generic [ref=e155]:
+      - generic [ref=e156]: What is a background agent
+      - generic [ref=e157]:
+        - 'heading "The answer: agents that run in the background" [level=2] [ref=e158]'
+        - generic [ref=e160]:
+          - img [ref=e162]
+          - img [ref=e165]
+          - img [ref=e168]
+          - img [ref=e173]
+      - paragraph [ref=e175]: "A coding agent needs your machine and your attention. A background agent needs neither. It runs in its own development environment in the cloud: full toolchain, test suite, everything. Completely decoupled from your device and your session."
+      - paragraph [ref=e176]: Kick one off from your laptop, check the result from your phone. Trigger it from a PR, a Slack thread, a Linear ticket, a webhook, or just spin one up manually.
+      - paragraph [ref=e177]: "You're not steering it. You're not watching it. It's an asynchronous task: delegate, walk away, review later. It runs for as long as it needs to."
+      - table [ref=e179]:
+        - rowgroup [ref=e180]:
+          - row "Coding agent Background agent" [ref=e181]:
+            - columnheader [ref=e182]
+            - columnheader "Coding agent" [ref=e183]
+            - columnheader "Background agent" [ref=e184]
+        - rowgroup [ref=e185]:
+          - row "Where they run Your laptop or local machine Cloud infrastructure, triggered remotely" [ref=e186]:
+            - cell "Where they run" [ref=e187]
+            - cell "Your laptop or local machine" [ref=e188]
+            - cell "Cloud infrastructure, triggered remotely" [ref=e189]
+          - row "How they’re triggered You invoke them manually Events, schedules, Slack messages, API calls — any signal" [ref=e190]:
+            - cell "How they’re triggered" [ref=e191]
+            - cell "You invoke them manually" [ref=e192]
+            - cell "Events, schedules, Slack messages, API calls — any signal" [ref=e193]
+          - row "Scope Single task in one repo Across repos, teams, and the full SDLC" [ref=e194]:
+            - cell "Scope" [ref=e195]
+            - cell "Single task in one repo" [ref=e196]
+            - cell "Across repos, teams, and the full SDLC" [ref=e197]
+          - row "Developer’s role In the loop — watching, steering, iterating On the loop — prompt, walk away, review the output" [ref=e198]:
+            - cell "Developer’s role" [ref=e199]
+            - cell "In the loop — watching, steering, iterating" [ref=e200]
+            - cell "On the loop — prompt, walk away, review the output" [ref=e201]
+    - generic [ref=e202]:
+      - generic [ref=e205]:
+        - heading "Establish agent primitives" [level=2] [ref=e209]
+        - paragraph [ref=e210]: Autonomous agents need infrastructure that doesn't exist on your laptop. The building blocks below are what separate a demo from a deployment — sandboxed execution, governance, connectivity to your internal systems, trigger automation, and fleet coordination. Each one unlocks the next.
+      - generic [ref=e214]:
+        - generic [ref=e216]:
+          - generic [ref=e217]: Development Environment
+          - heading "The agent needs a computer" [level=4] [ref=e218]
+        - paragraph [ref=e219]:
+          - text: Agents running in the background need their own execution environment with a full toolchain, ability to run tests and access via secrets to systems.
+          - text: Environments should be isolated, and reproducible with close parity to production systems to allow fleets of agents. Everything else builds on top of this.
+      - generic [ref=e238]:
+        - generic [ref=e240]:
+          - generic [ref=e241]: Pattern 1
+          - generic [ref=e242]: Pattern 2
+          - generic [ref=e243]:
+            - text: Agent has dev environment
+            - generic [ref=e244]:
+              - img [ref=e246]
+              - img [ref=e251]
+          - generic [ref=e253]:
+            - text: Sandbox as tool
+            - generic [ref=e254]:
+              - img [ref=e256]:
+                - generic [ref=e258]: E2B
+              - img [ref=e260]
+              - img [ref=e264]
+          - paragraph [ref=e267]:
+            - text: The agent has a full development environment. A VM running a dev container with your codebase, test suite, databases, and internal network access.
+            - text: This is the closest to how a human developer works. Every enterprise that has shared their agent architecture publicly including Stripe, Ramp, and Spotify chose this pattern.
+          - paragraph [ref=e268]:
+            - text: The agent runs on a server or locally. When it needs to execute code, it calls a separate remote sandbox via API. The sandbox runs the code and returns the result. This keeps secrets and execution somewhat isolated, but the agent can only execute code and not fully develop.
+            - text: Best suited for companies building agent products than organizations improving their own engineering workflows.
+          - img [ref=e270]:
+            - generic [ref=e272]: VM
+            - generic [ref=e274]: Dev Container
+            - generic [ref=e277]: Agent
+            - generic [ref=e280]: Codebase
+            - generic [ref=e283]: Test suite
+            - generic [ref=e286]: Build system
+            - generic [ref=e289]: Databases
+            - generic [ref=e292]: Internal APIs
+            - generic [ref=e295]: Secrets
+            - generic [ref=e298]: Private registries
+          - img [ref=e300]:
+            - generic [ref=e302]: Your Server
+            - generic [ref=e305]: Agent
+            - generic [ref=e308]: Secrets
+            - generic [ref=e311]: State
+            - generic [ref=e314]: Reasoning
+            - generic [ref=e316]: Sandbox
+            - generic [ref=e317]: (container)
+            - generic [ref=e320]: Execute code
+            - generic [ref=e323]: Return result
+            - generic [ref=e326]: API
+        - 'link "Read: Don''t Build Your Own Sandbox by Lou Bichard, Field CTO at Ona" [ref=e327] [cursor=pointer]':
+          - /url: https://ona.com/stories/dont-build-a-coding-agent-sandbox?utm_source=background-agents&utm_medium=microsite&utm_campaign=background-agent-manual
+          - img [ref=e328]
+          - text: "Read: Don't Build Your Own Sandbox"
+          - generic [ref=e332]: by Lou Bichard, Field CTO at Ona
+      - generic [ref=e334]:
+        - generic [ref=e336]:
+          - generic [ref=e338]:
+            - generic [ref=e339]: Governance
+            - heading "Enforced at runtime, not by prompt" [level=4] [ref=e340]
+          - paragraph [ref=e341]:
+            - text: Agents are actors in your system. They need the same controls as human contributors — identity, permissions, audit trails.
+            - text: "The difference: governance enforced by a system prompt (\"please don't delete files\") is a suggestion. Governance enforced at the execution layer — deny lists, scoped credentials, deterministic command blocking — is actual governance. Without it, security teams veto autonomous agents entirely. And they're right to."
+        - 'link "Read: How Claude Code escapes its own denylist and sandbox by Leonardo Di Donato, Agent Security Lead at Ona" [ref=e345] [cursor=pointer]':
+          - /url: https://ona.com/stories/how-claude-code-escapes-its-own-denylist-and-sandbox?utm_source=background-agents&utm_medium=microsite&utm_campaign=background-agent-manual
+          - img [ref=e346]
+          - text: "Read: How Claude Code escapes its own denylist and sandbox"
+          - generic [ref=e350]: by Leonardo Di Donato, Agent Security Lead at Ona
+      - generic [ref=e353]:
+        - generic [ref=e354]:
+          - generic [ref=e356]:
+            - generic [ref=e357]: Context & Connectivity
+            - heading "Behind your firewall" [level=4] [ref=e358]
+          - paragraph [ref=e359]: A sandbox that can't reach your internal systems is a toy. Agents need to assume IAM roles, query database replicas, hit internal APIs, and pull from private registries — all from inside your network. Context and connectivity turn isolated execution into real work.
+        - generic [ref=e361]:
+          - img [ref=e362]
+          - img [ref=e386]
+          - img [ref=e391]
+          - img [ref=e396]
+          - img [ref=e400]
+          - img [ref=e404]
+      - generic [ref=e408]:
+        - generic [ref=e409]:
+          - generic [ref=e410]:
+            - generic [ref=e411]: Triggers
+            - heading "Remove the human from the invocation loop" [level=4] [ref=e412]
+          - paragraph [ref=e413]: "If every agent run starts with a developer typing a prompt, you haven't automated the workflow — just the work. Triggers connect agents to the events that matter: schedules, webhooks, system signals. Each pattern maps to a different scope and cadence."
+        - generic [ref=e415]:
+          - generic [ref=e416]:
+            - generic [ref=e417]: ⏱
+            - heading "Scheduled agents" [level=4] [ref=e418]
+          - paragraph [ref=e419]: Triggered on a timer. Predictable, bounded, high-volume — dependency updates, lint sweeps, coverage enforcement.
+        - generic [ref=e424]:
+          - generic [ref=e425]:
+            - generic [ref=e426]: ⚡︎
+            - heading "Event-driven agents" [level=4] [ref=e427]
+          - paragraph [ref=e428]: Triggered by system events — a PR opened, a CVE published, an alert fired. Reactive, concurrent, always listening.
+        - generic [ref=e433]:
+          - generic [ref=e434]:
+            - generic [ref=e435]: ⊞
+            - heading "Agent fleets" [level=4] [ref=e436]
+          - paragraph [ref=e437]: One task across many repositories. Each agent works independently and produces its own contribution.
+        - generic [ref=e442]:
+          - generic [ref=e443]:
+            - generic [ref=e444]: ◉
+            - heading "Agent swarms" [level=4] [ref=e445]
+          - paragraph [ref=e446]: Many agents, one outcome. Every agent works on a different facet and results converge into a single deliverable.
+        - generic [ref=e451]:
+          - generic [ref=e452]:
+            - img [ref=e454]
+            - heading "Mobile" [level=4] [ref=e456]
+          - paragraph [ref=e457]: Trigger one, or many agents direct from your phone, or iMessage. One text, and a fleet fans out. The new TDD, Taxi Driven Development.
+      - generic [ref=e464]:
+        - generic [ref=e466]:
+          - generic [ref=e467]: Fleet Coordination
+          - heading "One intent, every repo" [level=4] [ref=e468]
+        - paragraph [ref=e469]: Updating one repository is a coding agent task. Updating 500 is a fleet task. The same sandbox, replicated across every repository that needs the change — parallel provisioning, progress tracking, aggregated results. This is where individual productivity becomes organizational throughput.
+    - generic [ref=e997]:
+      - generic [ref=e1000]: Towards a self-driving codebase
+      - heading "Scale your software factory" [level=2] [ref=e1001]
+      - paragraph [ref=e1002]:
+        - text: "Your engineering organization is a factory floor. Developers stand at every station: writing, reviewing, testing, patching, deploying. Code reviews pile up, CI failures go uninvestigated, CVEs sit unpatched for weeks. Background agents change the operating model. The factory still runs, code written, reviewed, tested, deployed, but"
+        - strong [ref=e1003]: your engineers aren't in the loop — they're on the loop.
+      - img [ref=e1005]:
+        - generic [ref=e1009]: CODE
+        - generic [ref=e1012]: REVIEW
+        - generic [ref=e1015]: TEST
+      - generic [ref=e1046]:
+        - generic [ref=e1047]:
+          - img [ref=e1049]
+          - generic [ref=e1051]: Every PR is reviewed by an agent before a human sees it
+        - generic [ref=e1052]:
+          - img [ref=e1054]
+          - generic [ref=e1056]: CI failures are investigated and fixed before a developer is paged
+        - generic [ref=e1057]:
+          - img [ref=e1059]
+          - generic [ref=e1061]: Developers never manually resolve merge conflicts on agent PRs
+        - generic [ref=e1062]:
+          - img [ref=e1064]
+          - generic [ref=e1066]: Agents do the first-pass investigation into every production incident
+        - generic [ref=e1067]:
+          - img [ref=e1069]
+          - generic [ref=e1071]: Security vulnerabilities are patched within hours, not sprints
+      - link "A self-driving codebase, in public We built a software factory in public in ten days. Read about it at software-factory.dev →" [ref=e1072] [cursor=pointer]:
+        - /url: https://software-factory.dev/
+        - generic [ref=e1073]: A self-driving codebase, in public
+        - generic [ref=e1074]:
+          - text: We built a software factory in public in ten days.
+          - generic [ref=e1075]: Read about it at software-factory.dev →
+    - generic [ref=e1077]:
+      - generic [ref=e1080]:
+        - generic [ref=e1081]:
+          - generic [ref=e1082]: Summit wrapped · 6–7 May 2026
+          - heading "Background Agents Virtual Summit" [level=2] [ref=e1084]
+          - paragraph [ref=e1085]: The world's first event dedicated solely to background agents, and the future of the SDLC. With talks from companies like Stripe and Harvey who are already running background agents at scale.
+          - link "View recordings →" [ref=e1087] [cursor=pointer]:
+            - /url: /summit/
+        - generic [ref=e1088]:
+          - generic [ref=e1089]: Featuring
+          - generic [ref=e1090]:
+            - generic [ref=e1091]:
+              - generic [ref=e1092]:
+                - img "Alistair Gray" [ref=e1093]
+                - img [ref=e1096]
+              - generic [ref=e1099]:
+                - generic [ref=e1100]: Stripe
+                - generic [ref=e1101]: Alistair Gray
+            - generic [ref=e1102]:
+              - generic [ref=e1103]:
+                - img "Joey Wang" [ref=e1104]
+                - img "Harvey" [ref=e1107]
+              - generic [ref=e1108]:
+                - generic [ref=e1109]: Harvey
+                - generic [ref=e1110]: Joey Wang
+            - generic [ref=e1111]:
+              - generic [ref=e1112]:
+                - img "Nikhil Ramakrishnan" [ref=e1113]
+                - img "Uber" [ref=e1116]
+              - generic [ref=e1117]:
+                - generic [ref=e1118]: Uber
+                - generic [ref=e1119]: Nikhil Ramakrishnan
+            - generic [ref=e1120]:
+              - generic [ref=e1121]:
+                - img "Suhail Patel" [ref=e1122]
+                - img "Monzo" [ref=e1125]
+              - generic [ref=e1126]:
+                - generic [ref=e1127]: Monzo
+                - generic [ref=e1128]: Suhail Patel
+            - generic [ref=e1129]:
+              - generic [ref=e1130]:
+                - img "Shardul Vaidya" [ref=e1131]
+                - img "AWS" [ref=e1134]
+              - generic [ref=e1135]:
+                - generic [ref=e1136]: AWS
+                - generic [ref=e1137]: Shardul Vaidya
+            - generic [ref=e1138]:
+              - generic [ref=e1139]:
+                - img "Rajesh Bhatia" [ref=e1140]
+                - img "Cloudflare" [ref=e1143]
+              - generic [ref=e1145]:
+                - generic [ref=e1146]: Cloudflare
+                - generic [ref=e1147]: Rajesh Bhatia
+            - generic [ref=e1148]: "& many more…"
+      - link "Background Agent Tool Landscape The Background Agent Tool Landscape 95+ tools across 11 layers. Explore the landscape →" [ref=e1151] [cursor=pointer]:
+        - /url: /landscape
+        - img "Background Agent Tool Landscape" [ref=e1153]
+        - generic [ref=e1154]:
+          - generic [ref=e1155]: The Background Agent Tool Landscape
+          - generic [ref=e1156]: 95+ tools across 11 layers.
+          - generic [ref=e1158]: Explore the landscape →
+    - generic [ref=e1159]:
+      - heading "Further reading" [level=2] [ref=e1160]
+      - link "The complete background agents guide Guide The complete background agents guide Every insight from the Background Agents Summit on how Stripe, Uber, and others securely roll out background agents. Stripe Ramp Spotify Uber Harvey OpenAI Read the guide →" [ref=e1163] [cursor=pointer]:
+        - /url: https://ona.com/guides/background-agents?utm_source=background-agents&utm_medium=microsite&utm_campaign=background-agent-manual
+        - img "The complete background agents guide" [ref=e1166]
+        - generic [ref=e1167]:
+          - generic [ref=e1168]: Guide
+          - generic [ref=e1169]: The complete background agents guide
+          - generic [ref=e1170]: Every insight from the Background Agents Summit on how Stripe, Uber, and others securely roll out background agents.
+          - generic [ref=e1171]:
+            - img "Stripe" [ref=e1173]
+            - img "Ramp" [ref=e1175]
+            - img "Spotify" [ref=e1177]
+            - img "Uber" [ref=e1179]
+            - img "Harvey" [ref=e1181]
+            - img "OpenAI" [ref=e1183]
+          - generic [ref=e1184]:
+            - text: Read the guide
+            - generic [ref=e1185]: →
+      - generic [ref=e1186]:
+        - 'link "Stripe''s \"Minions\": 1,300 PRs weekly Stripe Stripe''s \"Minions\": 1,300 PRs weekly" [ref=e1187] [cursor=pointer]':
+          - /url: https://www.youtube.com/watch?v=o5Mi5SYSDnY
+          - 'img "Stripe''s \"Minions\": 1,300 PRs weekly" [ref=e1188]'
+          - generic [ref=e1189]: Stripe
+          - generic [ref=e1190]: "Stripe's \"Minions\": 1,300 PRs weekly"
+        - 'link "Inside Ramp: AI Agents Run Everything Ramp Inside Ramp: AI Agents Run Everything" [ref=e1191] [cursor=pointer]':
+          - /url: https://www.youtube.com/watch?v=RBqT2PHWdBg&t=998s
+          - 'img "Inside Ramp: AI Agents Run Everything" [ref=e1192]'
+          - generic [ref=e1193]: Ramp
+          - generic [ref=e1194]: "Inside Ramp: AI Agents Run Everything"
+        - link "How Ramp built a background coding agent Ramp How Ramp built a background coding agent" [ref=e1195] [cursor=pointer]:
+          - /url: https://www.youtube.com/watch?v=ii9E5z8Gsrc
+          - img "How Ramp built a background coding agent" [ref=e1196]
+          - generic [ref=e1197]: Ramp
+          - generic [ref=e1198]: How Ramp built a background coding agent
+        - link "1M LOC, 0% human code or review OpenAI 1M LOC, 0% human code or review" [ref=e1199] [cursor=pointer]:
+          - /url: https://www.youtube.com/watch?v=CeOXx-XTYek&t=2794s
+          - img "1M LOC, 0% human code or review" [ref=e1200]
+          - generic [ref=e1201]: OpenAI
+          - generic [ref=e1202]: 1M LOC, 0% human code or review
+        - link "Leading engineering through an agentic shift Uber Leading engineering through an agentic shift" [ref=e1203] [cursor=pointer]:
+          - /url: https://www.youtube.com/watch?v=i1tZN41VKcE&t=584s
+          - img "Leading engineering through an agentic shift" [ref=e1204]
+          - generic [ref=e1205]: Uber
+          - generic [ref=e1206]: Leading engineering through an agentic shift
+        - link "Rewriting the codebase, all the time Spotify Rewriting the codebase, all the time" [ref=e1207] [cursor=pointer]:
+          - /url: https://www.youtube.com/watch?v=1oicrAfrEIk
+          - img "Rewriting the codebase, all the time" [ref=e1208]
+          - generic [ref=e1209]: Spotify
+          - generic [ref=e1210]: Rewriting the codebase, all the time
+      - list [ref=e1211]:
+        - listitem [ref=e1212]:
+          - generic [ref=e1213]: "[1]"
+          - generic [ref=e1214]:
+            - 'link "1,500+ PRs Later: Spotify’s Journey with Our Background Coding Agent" [ref=e1215] [cursor=pointer]':
+              - /url: https://engineering.atspotify.com/2025/11/spotifys-background-coding-agent-part-1
+            - generic [ref=e1216]: https://engineering.atspotify.com/2025/11/spotifys-background-coding-agent-part-1
+          - generic [ref=e1217]: Spotify
+        - listitem [ref=e1218]:
+          - generic [ref=e1219]: "[2]"
+          - generic [ref=e1220]:
+            - 'link "Minions: Stripe''s One-Shot, End-to-End Coding Agents" [ref=e1221] [cursor=pointer]':
+              - /url: https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents
+            - generic [ref=e1222]: https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents
+          - generic [ref=e1223]: Stripe
+        - listitem [ref=e1224]:
+          - generic [ref=e1225]: "[3]"
+          - generic [ref=e1226]:
+            - link "Why We Built Our Background Agent" [ref=e1227] [cursor=pointer]:
+              - /url: https://builders.ramp.com/post/why-we-built-our-background-agent
+            - generic [ref=e1228]: https://builders.ramp.com/post/why-we-built-our-background-agent
+          - generic [ref=e1229]: Ramp
+        - listitem [ref=e1230]:
+          - generic [ref=e1231]: "[4]"
+          - generic [ref=e1232]:
+            - 'link "How Uber Uses AI for Development: Inside Look" [ref=e1233] [cursor=pointer]':
+              - /url: https://newsletter.pragmaticengineer.com/p/how-uber-uses-ai-for-development
+            - generic [ref=e1234]: https://newsletter.pragmaticengineer.com/p/how-uber-uses-ai-for-development
+          - generic [ref=e1235]: Pragmatic Engineer
+        - listitem [ref=e1236]:
+          - generic [ref=e1237]: "[5]"
+          - generic [ref=e1238]:
+            - 'link "Building Spectre: Harvey’s Internal Collaborative Cloud Agent Platform" [ref=e1239] [cursor=pointer]':
+              - /url: https://www.harvey.ai/blog/building-spectre-internal-collaborative-cloud-agent-platform
+            - generic [ref=e1240]: https://www.harvey.ai/blog/building-spectre-internal-collaborative-cloud-agent-platform
+          - generic [ref=e1241]: Harvey
+        - listitem [ref=e1242]:
+          - generic [ref=e1243]: "[6]"
+          - generic [ref=e1244]:
+            - 'link "Harness Engineering: Leveraging Codex in an Agent-First World" [ref=e1245] [cursor=pointer]':
+              - /url: https://openai.com/index/harness-engineering/
+            - generic [ref=e1246]: https://openai.com/index/harness-engineering/
+          - generic [ref=e1247]: OpenAI
+        - listitem [ref=e1248]:
+          - generic [ref=e1249]: "[7]"
+          - generic [ref=e1250]:
+            - link "Towards Self-Driving Codebases" [ref=e1251] [cursor=pointer]:
+              - /url: https://cursor.com/blog/self-driving-codebases
+            - generic [ref=e1252]: https://cursor.com/blog/self-driving-codebases
+          - generic [ref=e1253]: Cursor
+      - button "+ 12 more articles" [ref=e1254] [cursor=pointer]
+    - contentinfo [ref=e1255]:
+      - generic [ref=e1256]:
+        - generic [ref=e1257]: Changelog
+        - generic [ref=e1258]:
+          - generic [ref=e1263]:
+            - generic [ref=e1264]: Apr 20
+            - generic [ref=e1265]: Added Virtual Summit speaker lineup (Stripe, Harvey, Monzo, PostHog, AWS, WorkOS, incident.io, Ona)
+          - generic [ref=e1270]:
+            - generic [ref=e1271]: Apr 15
+            - generic [ref=e1272]: Added video carousel with talks from Stripe, Ramp, Uber, Spotify, and OpenAI
+          - generic [ref=e1277]:
+            - generic [ref=e1278]: Apr 8
+            - generic [ref=e1279]: Added Harvey Spectre and Ramp org-design playbook to further reading
+          - generic [ref=e1284]:
+            - generic [ref=e1285]: Apr 1
+            - generic [ref=e1286]: Landscape update — 18 new vendors added since launch
+          - generic [ref=e1290]:
+            - generic [ref=e1291]: Mar 25
+            - generic [ref=e1292]: Announced Virtual Summit
+        - button "+ 10 more updates" [ref=e1293] [cursor=pointer]
+      - generic [ref=e1294]:
+        - generic [ref=e1295]: Created by
+        - generic [ref=e1296]:
+          - generic [ref=e1297]: Lou
+          - generic [ref=e1298]:
+            - link "Lou on X" [ref=e1299] [cursor=pointer]:
+              - /url: https://x.com/loujaybee
+              - img [ref=e1300]
+            - link "Lou on LinkedIn" [ref=e1302] [cursor=pointer]:
+              - /url: https://linkedin.com/in/loujaybee
+              - img [ref=e1303]
+        - generic [ref=e1305]: and the team at
+        - link "Ona" [ref=e1306] [cursor=pointer]:
+          - /url: https://ona.com/?utm_source=background-agents&utm_medium=microsite&utm_campaign=background-agent-manual
+          - img "Ona" [ref=e1307]
+      - link "Privacy policy" [ref=e1311] [cursor=pointer]:
+        - /url: https://ona.com/legal/privacy-policy?utm_source=background-agents&utm_medium=microsite&utm_campaign=background-agent-manual
+    - button "View recent changes":
+      - text: What's new
+      - generic: "15"

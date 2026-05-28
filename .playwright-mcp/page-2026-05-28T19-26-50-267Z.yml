@@ -1,0 +1,28 @@
+- generic [ref=e4]:
+  - banner [ref=e5]:
+    - generic [ref=e7]:
+      - img [ref=e8]
+      - generic [ref=e9]: skybridge
+    - generic [ref=e10]:
+      - button "Tunnel" [ref=e11] [cursor=pointer]: Tunnel
+      - button "Playground" [ref=e13] [cursor=pointer]:
+        - img
+        - text: Playground
+      - button "Audit" [ref=e14] [cursor=pointer]:
+        - img
+        - text: Audit
+      - button "Deploy" [ref=e15] [cursor=pointer]:
+        - img
+        - text: Deploy
+    - navigation [ref=e17]:
+      - link "discord" [ref=e19] [cursor=pointer]:
+        - /url: https://discord.gg/awV4gu74wK
+      - generic [ref=e20]:
+        - generic [ref=e21]: ·
+        - link "docs" [ref=e22] [cursor=pointer]:
+          - /url: https://docs.skybridge.tech/
+      - generic [ref=e23]:
+        - generic [ref=e24]: ·
+        - link "github" [ref=e25] [cursor=pointer]:
+          - /url: https://github.com/alpic-ai/skybridge
+  - paragraph [ref=e28]: Connecting to server...

@@ -1,0 +1,174 @@
+- generic [ref=e4]:
+  - banner [ref=e5]:
+    - generic [ref=e7]:
+      - img [ref=e8]
+      - generic [ref=e9]: fairlet
+      - generic [ref=e29]: 0.1.0
+    - generic [ref=e10]:
+      - button "Tunnel" [ref=e11] [cursor=pointer]: Tunnel
+      - button "Playground" [ref=e13] [cursor=pointer]:
+        - img
+        - text: Playground
+      - button "Audit" [ref=e14] [cursor=pointer]:
+        - img
+        - text: Audit
+      - button "Deploy" [ref=e15] [cursor=pointer]:
+        - img
+        - text: Deploy
+    - navigation [ref=e17]:
+      - link "discord" [ref=e19] [cursor=pointer]:
+        - /url: https://discord.gg/awV4gu74wK
+      - generic [ref=e20]:
+        - generic [ref=e21]: ·
+        - link "docs" [ref=e22] [cursor=pointer]:
+          - /url: https://docs.skybridge.tech/
+      - generic [ref=e23]:
+        - generic [ref=e24]: ·
+        - link "github" [ref=e25] [cursor=pointer]:
+          - /url: https://github.com/alpic-ai/skybridge
+  - generic [ref=e30]:
+    - complementary [ref=e33]:
+      - generic [ref=e34]:
+        - generic [ref=e35]:
+          - generic [ref=e36]: Tools
+          - button "Refresh tools" [ref=e37] [cursor=pointer]:
+            - img
+        - generic [ref=e38]:
+          - generic [ref=e39]:
+            - heading "search-rentals" [level=3] [ref=e40]:
+              - button "search-rentals" [ref=e41] [cursor=pointer]:
+                - img [ref=e42]
+                - generic [ref=e44]: search-rentals
+            - generic [ref=e47]: Search UK rental listings with policy-gated sponsored placements. Returns organic results and any sponsored card that passed the FairLet policy gate.
+          - generic [ref=e48]:
+            - heading "run-audit" [level=3] [ref=e49]:
+              - button "run-audit" [ref=e50] [cursor=pointer]:
+                - img [ref=e51]
+                - generic [ref=e53]: run-audit
+            - generic [ref=e56]: Run a continuous compliance audit against the FairLet policy gate. Fires 10 adversarial probes and returns a Publisher Trust Score with full traces.
+          - generic [ref=e57]:
+            - heading "generate-fresh-probes" [level=3] [ref=e58]:
+              - button "generate-fresh-probes" [ref=e59] [cursor=pointer]:
+                - img [ref=e60]
+                - generic [ref=e62]: generate-fresh-probes
+            - generic [ref=e65]: Generate fresh adversarial probes via Claude and run them through the policy gate live. Use this in Q&A to prove the gate is not just passing a curated regression suite.
+          - generic [ref=e66]:
+            - heading "show-dashboard" [level=3] [ref=e67]:
+              - button "show-dashboard" [ref=e68] [cursor=pointer]:
+                - img [ref=e69]
+                - generic [ref=e71]: show-dashboard
+            - generic [ref=e74]: Show the FairLet publisher dashboard — Publisher Trust Score (measurement) and Trust-Adjusted CPM (sell-side yield).
+          - generic [ref=e75]:
+            - heading "check-placement Run" [level=3] [ref=e76]:
+              - button "check-placement" [disabled] [expanded] [ref=e77]:
+                - img [ref=e78]
+                - generic [ref=e80]: check-placement
+              - button "Run" [ref=e82] [cursor=pointer]:
+                - img
+                - text: Run
+            - region "check-placement" [ref=e83]:
+              - generic [ref=e85]:
+                - button "Evaluate a sponsored ad placement against the FairLet policy gate. Returns serve/flag/block with reasons, citations, and scores. The MCP endpoint judges can hit directly." [ref=e87] [cursor=pointer]:
+                  - generic [ref=e88]: Evaluate a sponsored ad placement against the FairLet policy gate. Returns serve/flag/block with reasons, citations, and scores. The MCP endpoint judges can hit directly.
+                - generic [ref=e89]:
+                  - generic [ref=e90]:
+                    - tablist [ref=e91]:
+                      - tab "form" [selected] [ref=e92] [cursor=pointer]
+                      - tab "json" [ref=e93] [cursor=pointer]
+                    - button "Copy input" [ref=e94] [cursor=pointer]:
+                      - img [ref=e95]
+                  - tabpanel "form" [ref=e98]:
+                    - generic [ref=e102]:
+                      - generic [ref=e104]:
+                        - generic [ref=e105]: listingId
+                        - paragraph [ref=e106]: ID of a listing in inventory.
+                        - textbox "listingId" [ref=e107]:
+                          - /placeholder: ""
+                          - text: L-012
+                      - generic [ref=e110]:
+                        - generic [ref=e111]: advertiserConfig
+                        - paragraph [ref=e112]: Optional advertiser targeting configuration.
+                        - generic [ref=e114]:
+                          - generic [ref=e115]: advertiserName*
+                          - textbox "advertiserName*" [ref=e116]:
+                            - /placeholder: ""
+                        - generic [ref=e119]:
+                          - generic [ref=e120]: targetingExclude
+                          - button "add" [ref=e121] [cursor=pointer]:
+                            - img [ref=e122]
+                            - text: add
+                        - generic [ref=e125]:
+                          - generic [ref=e126]: targetingInclude
+                          - button "add" [ref=e127] [cursor=pointer]:
+                            - img [ref=e128]
+                            - text: add
+                      - generic [ref=e130]:
+                        - generic [ref=e131]: probeId
+                        - paragraph [ref=e132]: "Shortcut: run a specific audit probe by ID (1-10). Used by the audit agent."
+                        - spinbutton "probeId" [ref=e133]
+    - separator [ref=e134]
+    - main [ref=e137]:
+      - generic [ref=e138]:
+        - button "Tool output OK · 12ms · 1.1kb View state 1 token" [ref=e139] [cursor=pointer]:
+          - generic [ref=e140]:
+            - generic [ref=e141]: Tool output
+            - generic [ref=e142]:
+              - generic [ref=e143]: OK
+              - generic [ref=e144]: ·
+              - generic [ref=e145]: 12ms
+              - generic [ref=e146]: ·
+              - generic [ref=e147]: 1.1kb
+          - generic [ref=e148]:
+            - generic [ref=e149]: View state
+            - generic [ref=e151]: 1 token
+        - generic [ref=e158]:
+          - generic [ref=e159]:
+            - generic [ref=e160]:
+              - button "fullscreen" [ref=e161] [cursor=pointer]:
+                - img [ref=e162]
+                - generic [ref=e167]: fullscreen
+              - button "pip" [ref=e168] [cursor=pointer]:
+                - img [ref=e169]
+                - generic [ref=e172]: pip
+              - button "inline" [pressed] [ref=e173] [cursor=pointer]:
+                - img [ref=e174]
+                - generic [ref=e177]: inline
+            - button "light" [ref=e178] [cursor=pointer]:
+              - img [ref=e179]
+              - generic [ref=e185]: light
+            - button "Locale" [ref=e186] [cursor=pointer]:
+              - img [ref=e187]
+              - generic [ref=e191]: English (US)
+            - button "desktop" [ref=e192] [cursor=pointer]:
+              - img [ref=e193]
+              - generic [ref=e195]: desktop
+            - button "logs" [ref=e196] [cursor=pointer]:
+              - img [ref=e197]
+              - generic [ref=e198]: logs
+          - iframe [ref=e201]:
+            - generic [ref=f9e4]:
+              - generic [ref=f9e5]:
+                - generic [ref=f9e6]: Policy gate verdict
+                - generic [ref=f9e7]: FLAG
+              - generic [ref=f9e8]:
+                - generic [ref=f9e9]: 🛏️
+                - generic [ref=f9e10]:
+                  - generic [ref=f9e11]: Cosy 2-bed · Bermondsey
+                  - generic [ref=f9e12]: Spa Road · SE16 3SE · £950/mo
+              - generic [ref=f9e13]:
+                - generic [ref=f9e14]: · Off-platform deposit demanded ('wire to verify, viewing this evening only'). Listed 56% below postcode median.
+                - generic [ref=f9e15]: · Off-platform-deposit fraud pattern detected.
+                - generic [ref=f9e16]: · Listed at £950/mo — 56% below SE16 median (£2180/mo).
+              - generic [ref=f9e17]:
+                - generic [ref=f9e18]:
+                  - generic [ref=f9e20]: "0.00"
+                  - generic [ref=f9e21]: discrim.
+                - generic [ref=f9e22]:
+                  - generic [ref=f9e25]: "0.92"
+                  - generic [ref=f9e26]: fraud
+                - generic [ref=f9e27]:
+                  - generic [ref=f9e29]: "0.00"
+                  - generic [ref=f9e30]: brand-safety
+                - generic [ref=f9e31]:
+                  - generic [ref=f9e34]: "0.70"
+                  - generic [ref=f9e35]: quality

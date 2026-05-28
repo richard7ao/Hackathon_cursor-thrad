@@ -1,0 +1,13 @@
+[     114ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:54292/.well-known/oauth-protected-resource/mcp:0
+[     118ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:54292/.well-known/oauth-protected-resource:0
+[     145ms] [ERROR] Failed to load resource: the server responded with a status of 405 (Method Not Allowed) @ http://localhost:54292/mcp:0
+[    2885ms] [WARNING] An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing. @ http://localhost:54292/assets/index-B60OONu4.js:7
+[    2989ms] [LOG] %c[openai-proxy] %cInstalled logging proxy for window.openai color: #6366f1 color: #22223b @ http://localhost:54292/assets/node_modules/skybridge/dist/web/proxy.js?v=7624e14d:49
+[  150103ms] [LOG] [vite] server connection lost. Polling for restart... @ http://localhost:54292/assets/@vite/client:992
+[  150107ms] [LOG] [vite] server connection lost. Polling for restart... @ http://localhost:54292/@vite/client:992
+[  150269ms] [WARNING] An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing. @ about:blank:0
+[  169413ms] [ERROR] Failed to load resource: net::ERR_INCOMPLETE_CHUNKED_ENCODING @ http://localhost:54292/__skybridge/tunnel/events:0
+[  172416ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:54292/__skybridge/tunnel/events:0
+[  204173ms] [ERROR] Failed to load resource: net::ERR_INCOMPLETE_CHUNKED_ENCODING @ http://localhost:54292/__skybridge/tunnel/events:0
+[  207176ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:54292/__skybridge/tunnel/events:0
+[  216535ms] [ERROR] Failed to load resource: net::ERR_INCOMPLETE_CHUNKED_ENCODING @ http://localhost:54292/__skybridge/tunnel/events:0

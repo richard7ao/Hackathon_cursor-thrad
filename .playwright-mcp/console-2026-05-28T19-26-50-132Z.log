@@ -1,0 +1,5 @@
+[     124ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:54292/.well-known/oauth-protected-resource/mcp:0
+[     128ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:54292/.well-known/oauth-protected-resource:0
+[     152ms] [ERROR] Failed to load resource: the server responded with a status of 405 (Method Not Allowed) @ http://localhost:54292/mcp:0
+[    3224ms] [WARNING] An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing. @ http://localhost:54292/assets/index-B60OONu4.js:7
+[    3335ms] [LOG] %c[openai-proxy] %cInstalled logging proxy for window.openai color: #6366f1 color: #22223b @ http://localhost:54292/assets/node_modules/skybridge/dist/web/proxy.js?v=7624e14d:49

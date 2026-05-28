@@ -1,0 +1,112 @@
+- generic [ref=e4]:
+  - banner [ref=e5]:
+    - generic [ref=e7]:
+      - img [ref=e8]
+      - generic [ref=e9]: fairlet
+      - generic [ref=e29]: 0.1.0
+    - generic [ref=e10]:
+      - button "Tunnel" [ref=e11] [cursor=pointer]: Tunnel
+      - button "Playground" [ref=e13] [cursor=pointer]:
+        - img
+        - text: Playground
+      - button "Audit" [ref=e14] [cursor=pointer]:
+        - img
+        - text: Audit
+      - button "Deploy" [ref=e15] [cursor=pointer]:
+        - img
+        - text: Deploy
+    - navigation [ref=e17]:
+      - link "discord" [ref=e19] [cursor=pointer]:
+        - /url: https://discord.gg/awV4gu74wK
+      - generic [ref=e20]:
+        - generic [ref=e21]: ·
+        - link "docs" [ref=e22] [cursor=pointer]:
+          - /url: https://docs.skybridge.tech/
+      - generic [ref=e23]:
+        - generic [ref=e24]: ·
+        - link "github" [ref=e25] [cursor=pointer]:
+          - /url: https://github.com/alpic-ai/skybridge
+  - generic [ref=e30]:
+    - complementary [ref=e33]:
+      - generic [ref=e34]:
+        - generic [ref=e35]:
+          - generic [ref=e36]: Tools
+          - button "Refresh tools" [ref=e37] [cursor=pointer]:
+            - img
+        - generic [ref=e38]:
+          - generic [ref=e39]:
+            - heading "search-rentals" [level=3] [ref=e40]:
+              - button "search-rentals" [ref=e41] [cursor=pointer]:
+                - img [ref=e42]
+                - generic [ref=e44]: search-rentals
+            - generic [ref=e47]: Search UK rental listings with policy-gated sponsored placements. Returns organic results and any sponsored card that passed the FairLet policy gate.
+          - generic [ref=e48]:
+            - heading "run-audit Run" [level=3] [ref=e49]:
+              - button "run-audit" [disabled] [expanded] [ref=e50]:
+                - img [ref=e51]
+                - generic [ref=e53]: run-audit
+              - button "Run" [ref=e55] [cursor=pointer]:
+                - img
+                - text: Run
+            - region "run-audit" [ref=e56]:
+              - button "Run a continuous compliance audit against the FairLet policy gate. Fires 10 adversarial probes and returns a Publisher Trust Score with full traces." [ref=e60] [cursor=pointer]:
+                - generic [ref=e61]: Run a continuous compliance audit against the FairLet policy gate. Fires 10 adversarial probes and returns a Publisher Trust Score with full traces.
+          - generic [ref=e62]:
+            - heading "generate-fresh-probes" [level=3] [ref=e63]:
+              - button "generate-fresh-probes" [ref=e64] [cursor=pointer]:
+                - img [ref=e65]
+                - generic [ref=e67]: generate-fresh-probes
+            - generic [ref=e70]: Generate fresh adversarial probes via Claude and run them through the policy gate live. Use this in Q&A to prove the gate is not just passing a curated regression suite.
+          - generic [ref=e71]:
+            - heading "show-dashboard" [level=3] [ref=e72]:
+              - button "show-dashboard" [ref=e73] [cursor=pointer]:
+                - img [ref=e74]
+                - generic [ref=e76]: show-dashboard
+            - generic [ref=e79]: Show the FairLet publisher dashboard — Publisher Trust Score (measurement) and Trust-Adjusted CPM (sell-side yield).
+          - generic [ref=e80]:
+            - heading "check-placement" [level=3] [ref=e81]:
+              - button "check-placement" [ref=e82] [cursor=pointer]:
+                - img [ref=e83]
+                - generic [ref=e85]: check-placement
+            - generic [ref=e88]: Evaluate a sponsored ad placement against the FairLet policy gate. Returns serve/flag/block with reasons, citations, and scores. The MCP endpoint judges can hit directly.
+    - separator [ref=e89]
+    - main [ref=e92]:
+      - generic [ref=e93]:
+        - button "Tool output OK · 40ms · 6.9kb View state 1 token" [ref=e94] [cursor=pointer]:
+          - generic [ref=e95]:
+            - generic [ref=e96]: Tool output
+            - generic [ref=e97]:
+              - generic [ref=e98]: OK
+              - generic [ref=e99]: ·
+              - generic [ref=e100]: 40ms
+              - generic [ref=e101]: ·
+              - generic [ref=e102]: 6.9kb
+          - generic [ref=e103]:
+            - generic [ref=e104]: View state
+            - generic [ref=e106]: 1 token
+        - generic [ref=e113]:
+          - generic [ref=e114]:
+            - generic [ref=e115]:
+              - button "fullscreen" [ref=e116] [cursor=pointer]:
+                - img [ref=e117]
+                - generic [ref=e122]: fullscreen
+              - button "pip" [ref=e123] [cursor=pointer]:
+                - img [ref=e124]
+                - generic [ref=e127]: pip
+              - button "inline" [pressed] [ref=e128] [cursor=pointer]:
+                - img [ref=e129]
+                - generic [ref=e132]: inline
+            - button "light" [ref=e133] [cursor=pointer]:
+              - img [ref=e134]
+              - generic [ref=e140]: light
+            - button "Locale" [ref=e141] [cursor=pointer]:
+              - img [ref=e142]
+              - generic [ref=e146]: English (US)
+            - button "desktop" [ref=e147] [cursor=pointer]:
+              - img [ref=e148]
+              - generic [ref=e150]: desktop
+            - button "logs" [ref=e151] [cursor=pointer]:
+              - img [ref=e152]
+              - generic [ref=e153]: logs
+          - iframe [ref=e156]:
+            
