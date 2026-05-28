@@ -54,6 +54,6 @@ export function runAudit(): AuditRunResult {
 function alpicEndpoint(): string {
   return (
     process.env.ALPIC_PUBLIC_URL ??
-    "https://fairlet-mcp.alpic.app/check_placement"
+    "https://fairlet-7af52db6.alpic.live/mcp"
   );
 }

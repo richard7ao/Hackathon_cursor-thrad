@@ -134,15 +134,18 @@ Rules:
 - Honor every renter constraint (bedrooms, pet-friendly, party-friendly, garden, parking, transport links) — encode in the title or address if relevant.
 - imageEmoji: ONE single emoji glyph per listing, chosen for the property type.
 - Make the titles feel real and varied (don't just say "Apartments" — use names like "Leyton Mews", "Hackney Wick Lofts", "St John's Wood Villas").
+- sourceUrl: a REAL Rightmove search URL keyed to the postcode outcode + bedrooms, format:
+  https://www.rightmove.co.uk/property-to-rent/find.html?searchType=RENT&locationIdentifier=POSTCODE%5E<OUTCODE>&minBedrooms=<N>&maxBedrooms=<N>&radius=0.25
+  where <OUTCODE> is the URL-encoded outcode (e.g. E10) and <N> is the bedroom count. The URL must be valid and clickable.
 
 Return ONLY a single JSON object, no preamble, no markdown fences:
 {
   "postcodeArea": "<short outcode for the requested area, e.g. E10>",
   "medianRentGBP": <integer, approximate median rent for that area for the bedroom count>,
   "listings": [
-    { "id": "AI-001", "title": "...", "address": "...", "postcode": "E10 5XX", "bedrooms": 2, "monthlyRentGBP": 2100, "petFriendly": true, "imageEmoji": "🏠", "sponsoredBy": null },
-    { "id": "AI-002", "title": "...", "address": "...", "postcode": "E10 5YY", "bedrooms": 2, "monthlyRentGBP": 2250, "petFriendly": true, "imageEmoji": "🏢", "sponsoredBy": "Pemberton & Co" },
-    { "id": "AI-003", "title": "...", "address": "...", "postcode": "E11 1ZZ", "bedrooms": 2, "monthlyRentGBP": 2000, "petFriendly": true, "imageEmoji": "🌿", "sponsoredBy": null }
+    { "id": "AI-001", "title": "...", "address": "...", "postcode": "E10 5XX", "bedrooms": 2, "monthlyRentGBP": 2100, "petFriendly": true, "imageEmoji": "🏠", "sponsoredBy": null, "sourceUrl": "https://www.rightmove.co.uk/property-to-rent/find.html?searchType=RENT&locationIdentifier=POSTCODE%5EE10&minBedrooms=2&maxBedrooms=2&radius=0.25" },
+    { "id": "AI-002", "title": "...", "address": "...", "postcode": "E10 5YY", "bedrooms": 2, "monthlyRentGBP": 2250, "petFriendly": true, "imageEmoji": "🏢", "sponsoredBy": "Pemberton & Co", "sourceUrl": "..." },
+    { "id": "AI-003", "title": "...", "address": "...", "postcode": "E11 1ZZ", "bedrooms": 2, "monthlyRentGBP": 2000, "petFriendly": true, "imageEmoji": "🌿", "sponsoredBy": null, "sourceUrl": "..." }
   ]
 }`;
 
@@ -223,17 +226,24 @@ function parseRentalsJson(
     }
     const listings: Listing[] = json.listings
       .slice(0, 3)
-      .map((l: any, i: number) => ({
-        id: typeof l.id === "string" ? l.id : `AI-${String(i + 1).padStart(3, "0")}`,
-        title: String(l.title ?? "Untitled"),
-        address: String(l.address ?? "—"),
-        postcode: String(l.postcode ?? "— —"),
-        bedrooms: Number(l.bedrooms ?? 2),
-        monthlyRentGBP: Math.max(0, Math.round(Number(l.monthlyRentGBP ?? 2000))),
-        petFriendly: Boolean(l.petFriendly ?? false),
-        imageEmoji: typeof l.imageEmoji === "string" ? l.imageEmoji : "🏠",
-        sponsoredBy: typeof l.sponsoredBy === "string" ? l.sponsoredBy : undefined,
-      }));
+      .map((l: any, i: number) => {
+        const postcode = String(l.postcode ?? "— —");
+        const bedrooms = Number(l.bedrooms ?? 2);
+        const outcode = postcode.split(" ")[0];
+        const fallbackUrl = `https://www.rightmove.co.uk/property-to-rent/find.html?searchType=RENT&locationIdentifier=POSTCODE%5E${encodeURIComponent(outcode)}&minBedrooms=${bedrooms}&maxBedrooms=${bedrooms}&radius=0.25`;
+        return {
+          id: typeof l.id === "string" ? l.id : `AI-${String(i + 1).padStart(3, "0")}`,
+          title: String(l.title ?? "Untitled"),
+          address: String(l.address ?? "—"),
+          postcode,
+          bedrooms,
+          monthlyRentGBP: Math.max(0, Math.round(Number(l.monthlyRentGBP ?? 2000))),
+          petFriendly: Boolean(l.petFriendly ?? false),
+          imageEmoji: typeof l.imageEmoji === "string" ? l.imageEmoji : "🏠",
+          sponsoredBy: typeof l.sponsoredBy === "string" ? l.sponsoredBy : undefined,
+          sourceUrl: typeof l.sourceUrl === "string" && l.sourceUrl.startsWith("http") ? l.sourceUrl : fallbackUrl,
+        };
+      });
     return {
       postcodeArea: String(json.postcodeArea ?? listings[0]?.postcode.split(" ")[0] ?? "—"),
       medianRentGBP: Math.max(0, Math.round(Number(json.medianRentGBP ?? 2000))),

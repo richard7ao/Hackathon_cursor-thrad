@@ -114,6 +114,7 @@ type Listing = {
   petFriendly: boolean;
   imageEmoji: string;
   sponsoredBy?: string;
+  sourceUrl?: string;
 };
 
 function ListingRow({
@@ -172,13 +173,25 @@ function ListingRow({
             /mo
           </span>
         </div>
-        <button
-          type="button"
-          onClick={onInspect}
-          className="mt-1.5 font-mono text-[10px] uppercase tracking-wider text-ink-mute hover:text-ink"
-        >
-          inspect gate →
-        </button>
+        <div className="mt-1.5 flex justify-end gap-3 items-baseline">
+          {listing.sourceUrl ? (
+            <a
+              href={listing.sourceUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-mono text-[10px] uppercase tracking-wider text-crimson hover:underline"
+            >
+              view ↗
+            </a>
+          ) : null}
+          <button
+            type="button"
+            onClick={onInspect}
+            className="font-mono text-[10px] uppercase tracking-wider text-ink-mute hover:text-ink"
+          >
+            inspect gate →
+          </button>
+        </div>
       </div>
     </li>
   );

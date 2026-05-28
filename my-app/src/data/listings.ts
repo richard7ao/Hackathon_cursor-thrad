@@ -1,9 +1,20 @@
 import type { Listing } from "./types.js";
 
+// Builds a Rightmove search URL for a postcode + bedrooms. Real, clickable,
+// returns actual UK rental inventory. Better than a fake specific-listing
+// URL we can't keep alive.
+function rightmoveSearchUrl(postcode: string, bedrooms: number): string {
+  const outcode = postcode.split(" ")[0];
+  return `https://www.rightmove.co.uk/property-to-rent/find.html?searchType=RENT&locationIdentifier=POSTCODE%5E${encodeURIComponent(
+    outcode,
+  )}&minBedrooms=${bedrooms}&maxBedrooms=${bedrooms}&radius=0.25`;
+}
+
 // 12 seeded London rentals. 3 around London Bridge (one sponsored) for the
 // demo's legitimate query. 1 planted scam. Others for variety / unscripted
-// queries.
-export const LISTINGS: Listing[] = [
+// queries. Every listing carries a real Rightmove search URL so the "view
+// listing ↗" link in the UI is genuinely clickable.
+export const LISTINGS: Listing[] = decorateWithSourceUrls([
   // ── Beat 2: legitimate London-Bridge results ───────────────────────────
   {
     id: "L-001",
@@ -132,9 +143,16 @@ export const LISTINGS: Listing[] = [
     isScam: true,
     scamSignal:
       "Off-platform deposit demanded ('wire to verify, viewing this evening only'). Listed 56% below postcode median.",
-    source: "Tavily · scraped 22:14",
+    source: "Synthetic scam pattern · modeled on Bermondsey wire-deposit scams",
   },
-];
+]);
+
+function decorateWithSourceUrls(items: Listing[]): Listing[] {
+  return items.map((l) => ({
+    ...l,
+    sourceUrl: l.sourceUrl ?? rightmoveSearchUrl(l.postcode, l.bedrooms),
+  }));
+}
 
 // Median rent per postcode, used by the scam-detector sub-agent to compute
 // price deviation. Numbers approximate UK 2025 market data.

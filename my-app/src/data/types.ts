@@ -13,6 +13,10 @@ export type Listing = {
   isScam?: boolean;
   scamSignal?: string;
   source?: string;
+  // Real external URL where the renter can view this listing — a Rightmove or
+  // Zoopla search filtered to the postcode + bedrooms, or a specific listing
+  // page. Click it and you get actual UK rental data.
+  sourceUrl?: string;
 };
 
 export type AdvertiserConfig = {
