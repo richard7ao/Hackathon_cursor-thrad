@@ -1,14 +1,26 @@
-// Overmind tracing — uses the real @overmind-lab/trace-sdk (which wraps
-// OpenTelemetry + an OTLP exporter pointing at api.overmindlab.ai). We
-// manually create spans around the policy gate and Claude calls so each
-// shows up in console.overmindlab.ai's trace stream.
+// Overmind tracing — wires OpenTelemetry directly to Overmind's OTLP
+// endpoint, skipping the broken @overmind-lab/trace-sdk wrapper.
+// Endpoint + auth header reverse-engineered from the SDK's source:
+//   POST https://api.overmindlab.ai/api/v1/traces/create
+//   header X-API-TOKEN: <key>
+//   body  OTLP/protobuf (binary, framed by the OTel proto exporter)
+//
+// Every checkPlacement() and Claude call goes through traceSync/traceAsync
+// here and emits a span. Visible live in console.overmindlab.ai.
 
-import { trace as otelTrace, SpanStatusCode } from "@opentelemetry/api";
-import { OvermindClient } from "@overmind-lab/trace-sdk";
+import { SpanStatusCode, trace as otelTrace } from "@opentelemetry/api";
+import { OTLPTraceExporter } from "@opentelemetry/exporter-trace-otlp-proto";
+import { resourceFromAttributes } from "@opentelemetry/resources";
+import { NodeSDK } from "@opentelemetry/sdk-node";
+import { SimpleSpanProcessor } from "@opentelemetry/sdk-trace-base";
+import {
+  ATTR_SERVICE_NAME,
+  ATTR_SERVICE_VERSION,
+} from "@opentelemetry/semantic-conventions";
 import type { PlacementResult } from "../data/types.js";
 
 let initialised = false;
-let client: OvermindClient | undefined;
+let sdk: NodeSDK | undefined;
 
 export function initOvermind(): void {
   if (initialised) return;
@@ -16,21 +28,36 @@ export function initOvermind(): void {
   const apiKey = process.env.OVERMIND_API_KEY;
   if (!apiKey) {
     // eslint-disable-next-line no-console
-    console.warn("[overmind] OVERMIND_API_KEY not set — traces disabled.");
+    console.warn(
+      "[overmind] OVERMIND_API_KEY not set — traces disabled.",
+    );
     return;
   }
   try {
-    client = new OvermindClient({ apiKey, appName: "FairLet" });
-    // enableBatching false → spans export immediately, demo-friendly.
-    // We don't instrument OpenAI (we use Anthropic via fetch); our manual
-    // spans on policy-gate + claude calls do the work. Pass empty providers
-    // and cast — the SDK only branches on the `openai` field's truthiness.
-    client.initTracing({
-      enableBatching: false,
-      enabledProviders: {} as never,
+    const baseUrl =
+      process.env.OVERMIND_TRACES_URL ?? "https://api.overmindlab.ai";
+    const exporter = new OTLPTraceExporter({
+      url: `${baseUrl}/api/v1/traces/create`,
+      headers: { "X-API-TOKEN": apiKey },
     });
+    const resource = resourceFromAttributes({
+      [ATTR_SERVICE_NAME]: "FairLet",
+      [ATTR_SERVICE_VERSION]: "0.1.0",
+      "deployment.environment":
+        process.env.DEPLOYMENT_ENVIRONMENT ?? "production",
+    });
+    sdk = new NodeSDK({
+      resource,
+      spanProcessors: [new SimpleSpanProcessor(exporter)],
+      instrumentations: [],
+    });
+    sdk.start();
     // eslint-disable-next-line no-console
-    console.log("[overmind] tracing initialised → api.overmindlab.ai");
+    console.log(
+      "[overmind] OTLP tracer started → " +
+        baseUrl +
+        "/api/v1/traces/create",
+    );
   } catch (err) {
     // eslint-disable-next-line no-console
     console.error("[overmind] init failed:", err);
@@ -52,6 +79,9 @@ export function traceSync<T extends PlacementResult>(
       if (result.citation) span.setAttribute("fairlet.citation", result.citation);
       if (typeof result.forfeitedRevenueGBP === "number") {
         span.setAttribute("fairlet.forfeited_gbp", result.forfeitedRevenueGBP);
+      }
+      for (let i = 0; i < result.reasons.length && i < 3; i += 1) {
+        span.setAttribute(`fairlet.reason.${i}`, result.reasons[i]);
       }
       span.setStatus({ code: SpanStatusCode.OK });
       return result;
@@ -93,9 +123,9 @@ export async function traceAsync<T>(
 }
 
 export async function shutdownOvermind(): Promise<void> {
-  if (client) {
+  if (sdk) {
     try {
-      await client.shutdown();
+      await sdk.shutdown();
     } catch {
       // ignore
     }
