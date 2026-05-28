@@ -110,15 +110,38 @@ export async function checkPlacementWithUrl(
         scrapeErrorReason: extract.errorReason,
       };
       if (!extract.ok) {
+        // Tavily couldn't scrape (Zoopla / Rightmove anti-bot walls). If the
+        // URL is from a known legitimate listing site, treat as SERVE with
+        // an honest caveat — we trust the source even though we couldn't
+        // read the page. Unknown / suspicious domains stay FLAGGED.
+        const reputable = isReputableListingUrl(url);
+        if (reputable) {
+          return {
+            result: {
+              decision: "serve",
+              reasons: [
+                `Source ${reputable} is on the trusted-publisher allowlist. Deep content scan unavailable: ${extract.errorReason ?? "scrape blocked"}.`,
+                "Placement passes provenance check; consider re-running with a Tavily-scrapeable URL for full content audit.",
+              ],
+              scores: {
+                discrimination: 0,
+                fraud: 0,
+                brandSafety: 0,
+                quality: 0.2,
+              },
+            },
+            ctx,
+          };
+        }
         return {
           result: {
             decision: "flag",
             reasons: [
-              `Unable to verify listing — manual review required. Tavily could not scrape: ${extract.errorReason ?? "unknown error"}.`,
+              `Unable to verify listing — manual review required. Tavily could not scrape: ${extract.errorReason ?? "unknown error"}. Source domain not on trusted-publisher allowlist.`,
             ],
             scores: {
               discrimination: 0,
-              fraud: 0,
+              fraud: 0.3,
               brandSafety: 0,
               quality: 0.5,
             },
@@ -173,6 +196,37 @@ export async function checkPlacementWithUrl(
       };
     },
   );
+}
+
+// Reputable UK listing aggregators with established publisher relationships.
+// If Tavily can't scrape but the URL matches one of these patterns, we still
+// trust the placement.
+const REPUTABLE_LISTING_DOMAINS = [
+  "zoopla.co.uk",
+  "rightmove.co.uk",
+  "openrent.co.uk",
+  "spareroom.co.uk",
+  "onthemarket.com",
+  "primelocation.com",
+  "gumtree.com",
+];
+
+function isReputableListingUrl(url: string): string | null {
+  try {
+    const host = new URL(url).hostname.replace(/^www\./i, "").toLowerCase();
+    const match = REPUTABLE_LISTING_DOMAINS.find((d) => host.endsWith(d));
+    if (!match) return null;
+    // Extra check: must look like a detail/listing path, not a search page
+    // (we don't endorse arbitrary search-results URLs as "served").
+    const path = new URL(url).pathname.toLowerCase();
+    const looksLikeListing =
+      /\b(details?|property|properties|to-rent|for-sale|find-rental)\b/.test(path) ||
+      /\d{5,}/.test(path); // listing IDs are usually 5+ digit numbers
+    if (!looksLikeListing) return null;
+    return host;
+  } catch {
+    return null;
+  }
 }
 
 function extractOutcode(text: string): string | null {

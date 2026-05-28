@@ -32,6 +32,9 @@ export async function tavilyExtract(url: string): Promise<TavilyExtract> {
     };
   }
   try {
+    // extract_depth: "advanced" uses a headless browser — bypasses Zoopla,
+    // Rightmove, and most listing-site anti-bot walls. ~2x slower but the
+    // demo needs to actually scrape these sites.
     const res = await fetch(TAVILY_EXTRACT_ENDPOINT, {
       method: "POST",
       headers: {
@@ -41,7 +44,7 @@ export async function tavilyExtract(url: string): Promise<TavilyExtract> {
       body: JSON.stringify({
         urls: [url],
         include_images: false,
-        extract_depth: "basic",
+        extract_depth: "advanced",
       }),
     });
     if (!res.ok) {
