@@ -7,7 +7,8 @@ import type {
   AdvertiserConfig,
   PlacementResult,
 } from "../data/types.js";
-import { finishTrace, startTrace } from "./overmind.js";
+import { tavilyExtract } from "./tavily.js";
+import { traceSync, traceAsync } from "./overmind.js";
 
 // The Equality Act-protected target tokens. Any advertiser config matching one
 // of these in an exclusion list trips a hard BLOCK with a citation card.
@@ -60,15 +61,142 @@ export type CheckPlacementInput = {
   // injection). Used by the Generate Fresh Probes path so Claude-generated
   // probes that don't have a tidy targeting.exclude shape still trip the gate.
   attackPayload?: string;
+  // A real listing URL the gate should scrape (via Tavily) and audit. Lets
+  // judges paste a Zoopla/Rightmove URL and watch the gate decide on a page
+  // the team has never seen.
+  url?: string;
+};
+
+export type CheckPlacementContext = {
+  scrapedFromUrl?: string;
+  scrapedAtISO?: string;
+  scrapeErrorReason?: string;
+  detectedPostcodeArea?: string;
+  detectedPriceGBP?: number;
 };
 
 export function checkPlacement(input: CheckPlacementInput): PlacementResult {
-  // Trace every decision through Overmind. Fire-and-forget — never blocks
-  // the gate, never alters the verdict, never throws.
-  const trace = startTrace("check-placement", input, { probeId: input.probeId });
-  const result = checkPlacementImpl(input);
-  finishTrace(trace, result);
-  return result;
+  // Trace every decision through Overmind — one span per gate call. Visible
+  // live in console.overmindlab.ai during the demo. Never blocks or alters
+  // the verdict; OTel handles export asynchronously.
+  return traceSync(
+    "policy-gate.check_placement",
+    {
+      "fairlet.probe_id": input.probeId ?? -1,
+      "fairlet.listing_id": input.listingId ?? "",
+      "fairlet.advertiser":
+        input.advertiserConfig?.advertiserName ?? "",
+      "fairlet.has_payload": Boolean(input.attackPayload),
+      "fairlet.url": input.url ?? "",
+    },
+    () => checkPlacementImpl(input),
+  );
+}
+
+// Async variant for URL scraping — Tavily extract is an HTTP call. Wraps the
+// scrape in an Overmind span so judges see "tavily.extract" appear in the
+// trace stream during a live URL check.
+export async function checkPlacementWithUrl(
+  url: string,
+): Promise<{ result: PlacementResult; ctx: CheckPlacementContext }> {
+  return traceAsync(
+    "policy-gate.check_url",
+    { "fairlet.url": url },
+    async () => {
+      const extract = await tavilyExtract(url);
+      const ctx: CheckPlacementContext = {
+        scrapedFromUrl: url,
+        scrapedAtISO: extract.scrapedAtISO,
+        scrapeErrorReason: extract.errorReason,
+      };
+      if (!extract.ok) {
+        return {
+          result: {
+            decision: "flag",
+            reasons: [
+              `Unable to verify listing — manual review required. Tavily could not scrape: ${extract.errorReason ?? "unknown error"}.`,
+            ],
+            scores: {
+              discrimination: 0,
+              fraud: 0,
+              brandSafety: 0,
+              quality: 0.5,
+            },
+          },
+          ctx,
+        };
+      }
+
+      const content = extract.rawContent;
+      const detectedPostcodeArea = extractOutcode(content) ?? undefined;
+      const detectedPriceGBP = extractMonthlyRentGBP(content) ?? undefined;
+      ctx.detectedPostcodeArea = detectedPostcodeArea;
+      ctx.detectedPriceGBP = detectedPriceGBP;
+
+      // Use the same payload scanner the fresh-probes path uses — catches
+      // scam phrases, discrimination keywords, prompt injection, brand-unsafe
+      // adjacency, GDPR consent issues.
+      const payloadCheck = scanAttackPayload(content);
+      if (payloadCheck) return { result: payloadCheck, ctx };
+
+      // Price-deviation check — if the page declares a price and a postcode
+      // we have a median for, flag suspicious-low listings.
+      if (
+        detectedPriceGBP &&
+        detectedPostcodeArea &&
+        POSTCODE_MEDIAN_GBP[detectedPostcodeArea]
+      ) {
+        const median = POSTCODE_MEDIAN_GBP[detectedPostcodeArea];
+        const deviation = 1 - detectedPriceGBP / median;
+        if (deviation > 0.35) {
+          return {
+            result: {
+              decision: "flag",
+              reasons: [
+                `Listed at £${detectedPriceGBP}/mo — ${Math.round(
+                  deviation * 100,
+                )}% below ${detectedPostcodeArea} median (£${median}/mo).`,
+              ],
+              scores: { discrimination: 0, fraud: 0.7, brandSafety: 0, quality: 0.6 },
+            },
+            ctx,
+          };
+        }
+      }
+
+      // Nothing tripped — placement passes.
+      return {
+        result: serve([
+          "Placement passes policy gate (scraped via Tavily).",
+        ]),
+        ctx,
+      };
+    },
+  );
+}
+
+function extractOutcode(text: string): string | null {
+  const m = text.match(
+    /\b([A-PR-UWYZ]{1,2}\d[A-Z\d]?)\s*\d[A-Z]{2}\b/i,
+  );
+  return m ? m[1].toUpperCase() : null;
+}
+
+function extractMonthlyRentGBP(text: string): number | null {
+  // Try common patterns: "£1,800 pcm", "£1800/month", "£1,200 per month"
+  const patterns = [
+    /£\s*([\d,]+)\s*(?:pcm|per\s*month|\/\s*month|\/\s*mo)/i,
+    /([\d,]+)\s*£?\s*pcm/i,
+    /£\s*([\d,]+)/, // last resort — just the first £ amount on the page
+  ];
+  for (const re of patterns) {
+    const m = text.match(re);
+    if (m) {
+      const n = Number(m[1].replace(/,/g, ""));
+      if (Number.isFinite(n) && n > 200 && n < 50000) return n;
+    }
+  }
+  return null;
 }
 
 function checkPlacementImpl(input: CheckPlacementInput): PlacementResult {

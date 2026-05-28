@@ -3,6 +3,9 @@ import "dotenv/config";
 import { McpServer } from "skybridge/server";
 import { z } from "zod";
 
+import { initOvermind } from "./lib/overmind.js";
+initOvermind();
+
 import { AUDIT_PROBES } from "./data/audit-probes.js";
 import {
   POSTCODE_MEDIAN_GBP,
@@ -12,7 +15,7 @@ import {
 import { runAudit } from "./lib/audit-agent.js";
 import { generateFreshProbes, generateListings } from "./lib/claude.js";
 import { computeDashboard } from "./lib/dashboard.js";
-import { checkPlacement } from "./lib/policy-gate.js";
+import { checkPlacement, checkPlacementWithUrl } from "./lib/policy-gate.js";
 import { tavilySearch } from "./lib/tavily.js";
 
 const CSP_BASE = {
@@ -44,7 +47,11 @@ const server = new McpServer(
     {
       name: "search-rentals",
       description:
-        "Search UK rental listings with policy-gated sponsored placements. Returns organic results and any sponsored card that passed the FairLet policy gate.",
+        "Search UK rental listings with policy-gated sponsored placements. " +
+        "Returns 3 listings plus a sponsored placement card that has passed the FairLet policy gate. " +
+        "Canonical demo queries about London Bridge / SE1 hit the seeded inventory deterministically; " +
+        "any other UK area (Leyton, Hackney, Brixton, Camden, anywhere) is synthesised live by Claude with realistic addresses, postcodes, and Zoopla source URLs. " +
+        "Use this when the renter asks about UK rentals, flats, properties, or asks to see listings.",
       inputSchema: {
         query: z
           .string()
@@ -90,9 +97,21 @@ const server = new McpServer(
         generationError = generated.errorReason;
       }
 
-      const tavily = await tavilySearch(`UK rental ${query}`, {
-        maxResults: 5,
-      });
+      // Tavily search for actual listing URLs in the area. We use the top
+      // result URLs to override each listing's sourceUrl so the "view ↗"
+      // link goes to a real property page (Zoopla/Rightmove/OpenRent),
+      // not a postcode search.
+      const tavily = await tavilySearch(
+        `${query} site:zoopla.co.uk OR site:rightmove.co.uk OR site:openrent.co.uk`,
+        { maxResults: 6 },
+      );
+      const realUrls = tavily.results
+        .map((r) => r.url)
+        .filter((u) => /zoopla\.co\.uk|rightmove\.co\.uk|openrent\.co\.uk/.test(u));
+      listings = listings.map((l, i) => ({
+        ...l,
+        sourceUrl: realUrls[i] ?? l.sourceUrl,
+      }));
       const sponsored = listings.find((l) => l.sponsoredBy);
 
       return {
@@ -242,19 +261,33 @@ const server = new McpServer(
     },
   )
   // ────────────────────────────────────────────────────────────────────
-  // check-placement — the policy gate exposed directly. Judges hit this
-  // from their laptop / phone to verify the gate is live.
+  // check-placement — the policy gate exposed directly. Accepts one of
+  // four inputs and returns the gate's verdict.
   // ────────────────────────────────────────────────────────────────────
   .registerTool(
     {
       name: "check-placement",
       description:
-        "Evaluate a sponsored ad placement against the FairLet policy gate. Returns serve/flag/block with reasons, citations, and scores. The MCP endpoint judges can hit directly.",
+        "Evaluate a sponsored ad placement against the FairLet policy gate. " +
+        "Pass ONE of these inputs:\n" +
+        "  • url — a real property listing URL (Zoopla, Rightmove, OpenRent). Tavily scrapes it live and the gate audits the page it has never seen.\n" +
+        "  • listingId — a seeded inventory ID (L-001 to L-012).\n" +
+        "  • advertiserConfig — test an ad-targeting config for discrimination (e.g. { advertiserName: 'Test', targetingExclude: ['families_with_children'] }).\n" +
+        "  • probeId — re-run a specific audit probe by ID (1 to 10).\n" +
+        "Use this whenever asked to check if an ad placement is safe, test discrimination, verify a listing URL, or inspect a placement decision. " +
+        "Returns serve / flag / block plus reasons, statutory citations where applicable, and per-category scores.",
       inputSchema: {
+        url: z
+          .string()
+          .url()
+          .optional()
+          .describe(
+            "A real property listing URL. Tavily extract scrapes the page; the gate parses price + postcode + description and runs all checks against the live content.",
+          ),
         listingId: z
           .string()
           .optional()
-          .describe("ID of a listing in inventory."),
+          .describe("ID of a seeded listing (L-001 to L-012)."),
         advertiserConfig: z
           .object({
             advertiserName: z.string(),
@@ -262,20 +295,22 @@ const server = new McpServer(
             targetingInclude: z.array(z.string()).optional(),
           })
           .optional()
-          .describe("Optional advertiser targeting configuration."),
+          .describe(
+            "Advertiser targeting configuration. Use to test discrimination — set targetingExclude to e.g. ['families_with_children'], ['over_65'], ['non_british'] to see Equality Act enforcement.",
+          ),
         probeId: z
           .number()
           .int()
           .optional()
           .describe(
-            "Shortcut: run a specific audit probe by ID (1-10). Used by the audit agent.",
+            "Run a specific audit probe by ID (1-10). Used by the audit agent.",
           ),
       },
       annotations: {
         title: "Check placement",
         readOnlyHint: true,
         destructiveHint: false,
-        openWorldHint: false,
+        openWorldHint: true,
       },
       _meta: {
         "openai/toolInvocation/invoking": "Evaluating placement…",
@@ -288,8 +323,16 @@ const server = new McpServer(
         csp: CSP_BASE,
       },
     },
-    async ({ listingId, advertiserConfig, probeId }) => {
-      const result = checkPlacement({ listingId, advertiserConfig, probeId });
+    async ({ url, listingId, advertiserConfig, probeId }) => {
+      let result;
+      let scrapeCtx;
+      if (url) {
+        const out = await checkPlacementWithUrl(url);
+        result = out.result;
+        scrapeCtx = out.ctx;
+      } else {
+        result = checkPlacement({ listingId, advertiserConfig, probeId });
+      }
       const listing = listingId ? getListing(listingId) : undefined;
       const probe =
         typeof probeId === "number"
@@ -301,6 +344,7 @@ const server = new McpServer(
           listing,
           probe,
           advertiserConfig,
+          scrape: scrapeCtx,
         },
         content: [
           {

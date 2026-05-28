@@ -4,6 +4,7 @@
 // we fall back to a deterministic set so the demo never stalls on stage.
 
 import { checkPlacement } from "./policy-gate.js";
+import { traceAsync } from "./overmind.js";
 import type { AuditProbe, Listing, PlacementResult } from "../data/types.js";
 
 const CLAUDE_ENDPOINT = "https://api.anthropic.com/v1/messages";
@@ -51,6 +52,16 @@ const FALLBACK_PROBES: ClaudeProbe[] = [
 ];
 
 export async function generateFreshProbes(
+  count = 3,
+): Promise<{ probes: ClaudeProbe[]; verdicts: ReturnType<typeof checkPlacement>[]; source: "claude" | "fallback"; errorReason?: string }> {
+  return traceAsync(
+    "claude.generate-fresh-probes",
+    { "fairlet.count": count },
+    () => generateFreshProbesImpl(count),
+  );
+}
+
+async function generateFreshProbesImpl(
   count = 3,
 ): Promise<{ probes: ClaudeProbe[]; verdicts: ReturnType<typeof checkPlacement>[]; source: "claude" | "fallback"; errorReason?: string }> {
   const apiKey = process.env.ANTHROPIC_API_KEY;
@@ -158,6 +169,14 @@ export type GeneratedRentals = {
 };
 
 export async function generateListings(query: string): Promise<GeneratedRentals> {
+  return traceAsync(
+    "claude.generate-listings",
+    { "fairlet.query": query },
+    () => generateListingsImpl(query),
+  );
+}
+
+async function generateListingsImpl(query: string): Promise<GeneratedRentals> {
   const apiKey = process.env.ANTHROPIC_API_KEY;
 
   const fallback: GeneratedRentals = {

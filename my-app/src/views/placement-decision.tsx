@@ -25,7 +25,18 @@ export default function PlacementDecision() {
             <span className="font-mono normal-case tracking-normal">
               case {caseId(output)}
             </span>
+            {output.scrape?.scrapedFromUrl ? (
+              <>
+                <span className="text-rule-2">·</span>
+                <span className="font-mono normal-case tracking-normal text-crimson">
+                  scraped via tavily
+                </span>
+              </>
+            ) : null}
           </div>
+          {output.scrape?.scrapedFromUrl ? (
+            <ScrapeNote scrape={output.scrape} />
+          ) : null}
           <div className="mt-4 grid md:grid-cols-[auto_1fr] gap-x-10 gap-y-3 items-baseline">
             <div
               className={`serif-display text-[80px] md:text-[110px] leading-[0.85] font-medium uppercase tracking-tight ${verdictColor}`}
@@ -161,10 +172,72 @@ function ScoreCell({ label, v }: { label: string; v: number }) {
 }
 
 function caseId(output: any): string {
+  if (output?.scrape?.scrapedFromUrl) {
+    try {
+      const host = new URL(output.scrape.scrapedFromUrl).hostname.replace(/^www\./, "");
+      return `${host}`;
+    } catch {
+      return "url-scrape";
+    }
+  }
   if (output?.listing?.id) return output.listing.id;
   if (typeof output?.probe?.id === "number")
     return `P${String(output.probe.id).padStart(2, "0")}`;
   if (output?.advertiserConfig?.advertiserName)
     return output.advertiserConfig.advertiserName.toLowerCase().replace(/\s+/g, "-");
   return "ad-hoc";
+}
+
+function ScrapeNote({
+  scrape,
+}: {
+  scrape: {
+    scrapedFromUrl?: string;
+    scrapedAtISO?: string;
+    scrapeErrorReason?: string;
+    detectedPostcodeArea?: string;
+    detectedPriceGBP?: number;
+  };
+}) {
+  return (
+    <div className="mt-3 rounded-lg border border-rule bg-paper-2 px-4 py-3 text-[12px]">
+      <div className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-1.5 items-baseline">
+        <span className="eyebrow text-[9px]">url</span>
+        <a
+          href={scrape.scrapedFromUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-mono text-[10.5px] text-crimson break-all hover:underline"
+        >
+          {scrape.scrapedFromUrl}
+        </a>
+        {scrape.detectedPostcodeArea ? (
+          <>
+            <span className="eyebrow text-[9px]">postcode</span>
+            <span className="font-mono">{scrape.detectedPostcodeArea}</span>
+          </>
+        ) : null}
+        {typeof scrape.detectedPriceGBP === "number" ? (
+          <>
+            <span className="eyebrow text-[9px]">price</span>
+            <span className="font-mono tabular-nums">
+              £{scrape.detectedPriceGBP.toLocaleString()}/mo
+            </span>
+          </>
+        ) : null}
+        <span className="eyebrow text-[9px]">scraped</span>
+        <span className="font-mono text-ink-mute">
+          {scrape.scrapedAtISO?.replace("T", " ").slice(0, 16) ?? "—"}
+        </span>
+        {scrape.scrapeErrorReason ? (
+          <>
+            <span className="eyebrow text-[9px]">error</span>
+            <span className="text-ink-mute italic">
+              {scrape.scrapeErrorReason}
+            </span>
+          </>
+        ) : null}
+      </div>
+    </div>
+  );
 }
